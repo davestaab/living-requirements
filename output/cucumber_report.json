@@ -1,0 +1,58 @@
+[
+  {
+    "keyword": "Ability",
+    "name": "User can see a requirement",
+    "line": 1,
+    "id": "user-can-see-a-requirement",
+    "tags": [],
+    "uri": "requirements\\features\\requirements.feature",
+    "elements": [
+      {
+        "id": "user-can-see-a-requirement;simple-feature",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Simple feature",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [
+              {
+                "content": "[\n  {\n    \"keyword\": \"Ability\",\n    \"name\": \"User can see a requirement\",\n    \"line\": 1,\n    \"id\": \"user-can-see-a-requirement\",\n    \"tags\": [],\n    \"uri\": \"requirements\\\\features\\\\requirements.feature\"\n  }\n]",
+                "line": 5
+              }
+            ],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "a cucumber example output example1",
+            "match": {
+              "location": "requirements\\step_definitions\\steps.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 17,
+            "name": "you view index page",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "you can see a feature Simple requirement",
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
