@@ -14,5 +14,5 @@ Ability: User can see a requirement
       }
     ]
     """
-    When you view index page
-    Then you can see a feature Simple requirement
+    When you view page example example1
+    Then you can see a feature User can see a requirement

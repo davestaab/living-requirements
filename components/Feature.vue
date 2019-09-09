@@ -1,5 +1,5 @@
 <template>
-  <h1>{{ feature.name }}</h1>
+  <h1 data-testid="featureName">{{ feature.name }}</h1>
 </template>
 
 <script>
