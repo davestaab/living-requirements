@@ -1,25 +1,25 @@
 import assert from 'assert'
 import { cleanId } from '../../components/utils'
 
-export async function checkFeatureTable(context, table) {
+export async function assertFeatureTable(context, table) {
   await Promise.all(
     table.hashes().map((row) => {
-      return checkFeature(context, row.id, row.text)
+      return assertFeatureName(context, row.id, row.text)
     })
   )
 }
 
-export async function checkFeature(context, id, text) {
+export async function assertFeatureName(context, id, name) {
   const content = await context.page.$eval(
     `#${id} [data-testid="featureName"]`,
     (e) => e.innerHTML.trim()
   )
-  assert.strictEqual(content, text)
+  assert.strictEqual(content, name)
 }
 
-export async function checkFeatureDescription(context, id, desc) {
+export async function assertFeatureDescription(context, id, desc) {
   const actual = await context.page.$eval(
-    `#${id} .description`,
+    `#${id} [data-testid="featureDescription"]`,
     (e) => e.textContent
   )
   assert.strictEqual(cleanString(actual), cleanString(desc))
@@ -28,7 +28,7 @@ function cleanString(inStr) {
   return inStr.replace(/\n|\\n/g, '')
 }
 
-export async function checkFeatureTags(context, id, tagTable) {
+export async function assertFeatureTags(context, id, tagTable) {
   const content = await context.page.$$eval(
     `#${id} [data-testid="featureTag"]`,
     (e) => e.map((e2) => e2.innerHTML.trim())

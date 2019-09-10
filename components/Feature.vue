@@ -9,7 +9,7 @@
       {{ t.name }}
     </div>
     <h1 data-testid="featureName">{{ feature.keyword }}: {{ feature.name }}</h1>
-    <pre class="description">{{ feature.description }}</pre>
+    <pre data-testid="featureDescription">{{ feature.description }}</pre>
     <scenario
       v-for="(s, i) in feature.elements"
       :key="i"

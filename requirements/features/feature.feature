@@ -1,4 +1,3 @@
-@tag @anotherTag
 Ability: User can see a requirement
   In order to understand how the software works
   As a user
