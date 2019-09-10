@@ -4,17 +4,20 @@
     <h2 data-testid="scenarioName">
       {{ scenario.keyword }}: {{ scenario.name }}
     </h2>
+    <step v-for="(s, i) in scenario.steps" :key="i" :step="s"></step>
   </div>
 </template>
 
 <script>
 import { cleanId } from './utils'
 import Tags from './Tags'
+import Step from './Step'
 
 export default {
   name: 'Scenario',
   components: {
-    Tags
+    Tags,
+    Step
   },
   props: {
     scenario: {

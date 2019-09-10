@@ -44,3 +44,13 @@ export async function assertScenarioName(context, id, name) {
   )
   assert.strictEqual(actual, name)
 }
+
+export async function assertSteps(context, scenarioId, dataTable) {
+  const names = await context.page.$$eval(
+    `#${cleanId(scenarioId)} [data-testid="step"]`,
+    (e) => e.map((e2) => e2.innerHTML.trim())
+  )
+  dataTable.hashes().map((r, i) => {
+    assert.strictEqual(names[i], r.name)
+  })
+}

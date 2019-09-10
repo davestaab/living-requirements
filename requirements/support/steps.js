@@ -5,11 +5,20 @@ import {
   assertFeatureTable,
   assertFeatureDescription,
   assertTags,
-  assertScenarioName
+  assertScenarioName,
+  assertSteps
 } from './utils'
 
 Given('a cucumber example output {word}', function(name, docString) {
   fs.writeFileSync(`./static/examples/${name}.json`, docString)
+})
+
+Given('a cucumber example {word} output {word}:', function(
+  folder,
+  name,
+  docString
+) {
+  fs.writeFileSync(`./static/examples/${folder}/${name}.json`, docString)
 })
 
 Given('a pending scenario', function() {
@@ -52,4 +61,11 @@ Then('you can see a scenario {} has name {}', async function(
   scenarioName
 ) {
   await assertScenarioName(this, scenarioId, scenarioName)
+})
+
+Then('you can see steps for scenario {}', async function(
+  scenarioId,
+  dataTable
+) {
+  await assertSteps(this, scenarioId, dataTable)
 })

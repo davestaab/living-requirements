@@ -1,0 +1,13 @@
+{
+  "id": "scenario-with-steps",
+  "steps": [
+    {
+      "keyword": "Given ",
+      "name": "a cucumber example output single_feature"
+    },
+    {
+      "keyword": "When ",
+      "name": "you view page example single_feature"
+    }
+  ]
+}
