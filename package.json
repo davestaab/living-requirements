@@ -11,7 +11,7 @@
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "test": "jest",
-    "cuke": "cucumber-js --require-module esm requirements/features --require requirements/**/*.js --format json:output/cucumber_report.json"
+    "cuke": "cucumber-js --require-module esm requirements/features --require requirements/**/*.js --format json:static/output/cucumber_report.json"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint"

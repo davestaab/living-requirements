@@ -10,6 +10,10 @@ When('you view page {word} {word}', async function(page, instance) {
   await this.page.goto(`http://localhost:3000/${page}/${instance}`)
 })
 
+When('you view page {word}', async function(page) {
+  await this.page.goto(`http://localhost:3000/${page}`)
+})
+
 Then('you can see a feature {} has text {}', async function(featureName, text) {
   await checkFeature(this, featureName, text)
 })
