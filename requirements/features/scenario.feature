@@ -1,4 +1,4 @@
-Ability: User can see scenario for features
+Ability: User can see scenarios for features
   In order to see examples of the feature
   As a user
   I want to see scenarios illustrating the features
@@ -61,3 +61,6 @@ Ability: User can see scenario for features
       | tag      |
       | @debug   |
       | @another |
+
+    Scenario: Can see scenario description
+      Given a pending scenario

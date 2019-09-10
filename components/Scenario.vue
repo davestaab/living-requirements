@@ -1,8 +1,6 @@
 <template>
   <div :id="cleanId">
-    <div v-for="(t, i) in scenario.tags" :key="i" class="tag" data-testid="tag">
-      {{ t.name }}
-    </div>
+    <tags :tags="scenario.tags"></tags>
     <h2 data-testid="scenarioName">
       {{ scenario.keyword }}: {{ scenario.name }}
     </h2>
@@ -11,9 +9,13 @@
 
 <script>
 import { cleanId } from './utils'
+import Tags from './Tags'
 
 export default {
   name: 'Scenario',
+  components: {
+    Tags
+  },
   props: {
     scenario: {
       required: true,
@@ -28,9 +30,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.tag {
-  display: inline;
-  color: dimgray;
-}
-</style>
+<style scoped></style>

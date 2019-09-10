@@ -1,8 +1,6 @@
 <template>
   <div :id="feature.id">
-    <div v-for="(t, i) in feature.tags" :key="i" class="tag" data-testid="tag">
-      {{ t.name }}
-    </div>
+    <tags :tags="feature.tags"></tags>
     <h1 data-testid="featureName">{{ feature.keyword }}: {{ feature.name }}</h1>
     <pre data-testid="featureDescription">{{ feature.description }}</pre>
     <scenario
@@ -15,11 +13,13 @@
 
 <script>
 import Scenario from './Scenario'
+import Tags from './Tags'
 
 export default {
   name: 'Feature',
   components: {
-    Scenario
+    Scenario,
+    Tags
   },
   props: {
     feature: {
@@ -30,9 +30,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.tag {
-  display: inline;
-  color: dimgray;
-}
-</style>
+<style scoped></style>
