@@ -17,7 +17,6 @@ Ability: User can see scenario for features
           {
             "id": "user-can-see-a-requirement;simple-feature",
             "keyword": "Scenario",
-            "line": 7,
             "name": "Simple feature",
             "type": "scenario"
           }
@@ -27,3 +26,38 @@ Ability: User can see scenario for features
     """
     When you view page example scenario_title
     Then you can see a scenario user-can-see-a-requirement;simple-feature has name Scenario: Simple feature
+
+  Scenario: Can see scenario tags
+    Given a cucumber example output scenario_tags
+    """
+    [
+      {
+        "keyword": "Ability",
+        "name": "User can see a requirement",
+        "line": 2,
+        "id": "user-can-see-a-requirement",
+        "uri": "requirements\\features\\feature.feature",
+        "elements": [
+          {
+            "id": "user-can-see-a-requirement;simple-feature",
+            "keyword": "Scenario",
+            "tags": [
+              {
+                "name": "@debug"
+              },
+              {
+                "name": "@another"
+              }
+            ],
+            "name": "Simple feature",
+            "type": "scenario"
+          }
+        ]
+      }
+    ]
+    """
+    When you view page example scenario_tags
+    Then you can see a scenario user-can-see-a-requirement;simple-feature has tags:
+      | tag      |
+      | @debug   |
+      | @another |

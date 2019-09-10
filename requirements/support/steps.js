@@ -4,12 +4,16 @@ import {
   assertFeatureName,
   assertFeatureTable,
   assertFeatureDescription,
-  assertFeatureTags,
+  assertTags,
   assertScenarioName
 } from './utils'
 
 Given('a cucumber example output {word}', function(name, docString) {
   fs.writeFileSync(`./static/examples/${name}.json`, docString)
+})
+
+Given('a pending scenario', function() {
+  return 'pending'
 })
 
 When('you view page {word} {word}', async function(page, instance) {
@@ -35,8 +39,12 @@ Then('you can see features:', async function(featureTable) {
   await assertFeatureTable(this, featureTable)
 })
 
-Then('you can see a feature {} has tags:', async function(featureId, tagTable) {
-  await assertFeatureTags(this, featureId, tagTable)
+Then('you can see a {} {} has tags:', async function(
+  type,
+  featureId,
+  tagTable
+) {
+  await assertTags(this, featureId, tagTable)
 })
 
 Then('you can see a scenario {} has name {}', async function(

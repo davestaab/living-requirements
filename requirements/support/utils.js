@@ -28,9 +28,9 @@ function cleanString(inStr) {
   return inStr.replace(/\n|\\n/g, '')
 }
 
-export async function assertFeatureTags(context, id, tagTable) {
+export async function assertTags(context, id, tagTable) {
   const content = await context.page.$$eval(
-    `#${id} [data-testid="featureTag"]`,
+    `#${cleanId(id)} [data-testid="tag"]`,
     (e) => e.map((e2) => e2.innerHTML.trim())
   )
   tagTable.hashes().map((row, i) => {

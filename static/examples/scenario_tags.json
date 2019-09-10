@@ -9,6 +9,14 @@
       {
         "id": "user-can-see-a-requirement;simple-feature",
         "keyword": "Scenario",
+        "tags": [
+          {
+            "name": "@debug"
+          },
+          {
+            "name": "@another"
+          }
+        ],
         "name": "Simple feature",
         "type": "scenario"
       }

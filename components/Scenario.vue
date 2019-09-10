@@ -1,5 +1,8 @@
 <template>
   <div :id="cleanId">
+    <div v-for="(t, i) in scenario.tags" :key="i" class="tag" data-testid="tag">
+      {{ t.name }}
+    </div>
     <h2 data-testid="scenarioName">
       {{ scenario.keyword }}: {{ scenario.name }}
     </h2>
@@ -25,4 +28,9 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.tag {
+  display: inline;
+  color: dimgray;
+}
+</style>

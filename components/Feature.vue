@@ -1,11 +1,6 @@
 <template>
   <div :id="feature.id">
-    <div
-      v-for="(t, i) in feature.tags"
-      :key="i"
-      class="tag"
-      data-testid="featureTag"
-    >
+    <div v-for="(t, i) in feature.tags" :key="i" class="tag" data-testid="tag">
       {{ t.name }}
     </div>
     <h1 data-testid="featureName">{{ feature.keyword }}: {{ feature.name }}</h1>
