@@ -1,4 +1,5 @@
 import assert from 'assert'
+import { cleanId } from '../../components/utils'
 
 export async function checkFeatureTable(context, table) {
   await Promise.all(
@@ -35,4 +36,11 @@ export async function checkFeatureTags(context, id, tagTable) {
   tagTable.hashes().map((row, i) => {
     assert.strictEqual(content[i], row.tag)
   })
+}
+export async function assertScenarioName(context, id, name) {
+  const actual = await context.page.$eval(
+    `#${cleanId(id)} [data-testid="scenarioName"]`,
+    (e) => e.textContent.trim()
+  )
+  assert.strictEqual(actual, name)
 }

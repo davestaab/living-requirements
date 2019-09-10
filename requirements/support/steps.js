@@ -4,7 +4,8 @@ import {
   checkFeature,
   checkFeatureTable,
   checkFeatureDescription,
-  checkFeatureTags
+  checkFeatureTags,
+  assertScenarioName
 } from './utils'
 
 Given('a cucumber example output {word}', function(name, docString) {
@@ -36,4 +37,11 @@ Then('you can see features:', async function(featureTable) {
 
 Then('you can see a feature {} has tags:', async function(featureId, tagTable) {
   await checkFeatureTags(this, featureId, tagTable)
+})
+
+Then('you can see a scenario {} has name {}', async function(
+  scenarioId,
+  scenarioName
+) {
+  await assertScenarioName(this, scenarioId, scenarioName)
 })
