@@ -1,0 +1,17 @@
+[
+  {
+    "keyword": "Ability",
+    "name": "Can see tags",
+    "id": "can-see-tags",
+    "tags": [
+      {
+        "name": "@tag",
+        "line": 1
+      },
+      {
+        "name": "@anotherTag",
+        "line": 1
+      }
+    ]
+  }
+]

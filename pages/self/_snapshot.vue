@@ -8,10 +8,10 @@
 import Feature from '@/components/Feature'
 
 export default {
-  name: 'Self',
+  name: 'Snapshot',
   components: { Feature },
   async asyncData({ $axios }) {
-    const suit = await $axios.$get('/output/cucumber_report.json')
+    const suit = await $axios.$get('/output/cucumber_report_snapshot.json')
     return {
       suit
     }

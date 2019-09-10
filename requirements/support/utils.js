@@ -26,3 +26,13 @@ export async function checkFeatureDescription(context, id, desc) {
 function cleanString(inStr) {
   return inStr.replace(/\n|\\n/g, '')
 }
+
+export async function checkFeatureTags(context, id, tagTable) {
+  const content = await context.page.$$eval(
+    `#${id} [data-testid="featureTag"]`,
+    (e) => e.map((e2) => e2.innerHTML.trim())
+  )
+  tagTable.hashes().map((row, i) => {
+    assert.strictEqual(content[i], row.tag)
+  })
+}

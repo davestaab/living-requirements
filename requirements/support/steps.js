@@ -3,7 +3,8 @@ import { Given, When, Then } from 'cucumber'
 import {
   checkFeature,
   checkFeatureTable,
-  checkFeatureDescription
+  checkFeatureDescription,
+  checkFeatureTags
 } from './utils'
 
 Given('a cucumber example output {word}', function(name, docString) {
@@ -31,4 +32,8 @@ Then('you can see a feature {} has description {string}', async function(
 
 Then('you can see features:', async function(featureTable) {
   await checkFeatureTable(this, featureTable)
+})
+
+Then('you can see a feature {} has tags:', async function(featureId, tagTable) {
+  await checkFeatureTags(this, featureId, tagTable)
 })

@@ -1,8 +1,8 @@
-  [
-    {
-      "keyword": "Feature",
-      "description": "In order to understand how the software works\nAs a user\nI want to see each requirement",
-      "name": "User can see a requirement",
-      "id": "user-can-see-a-requirement"
-    }
-  ]
+[
+  {
+    "keyword": "Feature",
+    "description": "In order to understand how the software works\nAs a user\nI want to see each requirement",
+    "name": "User can see a requirement",
+    "id": "user-can-see-a-requirement"
+  }
+]
