@@ -1,4 +1,4 @@
-Ability: User can see the requirements for this module
+Ability: User can see the requirements for the living requirements module
 
   Scenario: Load last test run
     When you view page self
