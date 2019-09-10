@@ -1,7 +1,6 @@
 <template>
   <div>
     <feature v-for="(e, i) in example" :key="i" :feature="e"> </feature>
-    <h1>example</h1>
   </div>
 </template>
 

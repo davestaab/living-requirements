@@ -1,18 +1,21 @@
 import { Before, After, AfterAll } from 'cucumber'
 import puppeteer from 'puppeteer'
 
-let browser
+let browser, page
 Before('not @pending', async function() {
-  if (!this.browser) {
+  if (!browser) {
     browser = await puppeteer.launch({
       headless: false
     })
 
-    this.page = await browser.newPage()
+    page = await browser.newPage()
+    this.page = page
     await this.page.setViewport({
       width: 1280,
       height: 1024
     })
+  } else {
+    this.page = page
   }
 })
 
