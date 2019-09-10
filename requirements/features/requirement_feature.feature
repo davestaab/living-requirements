@@ -5,7 +5,7 @@ Ability: User can see a requirement
     """
     [
       {
-        "keyword": "Ability",
+        "keyword": "Feature",
         "name": "User can see a requirement",
         "line": 1,
         "id": "user-can-see-a-requirement",
@@ -15,7 +15,7 @@ Ability: User can see a requirement
     ]
     """
     When you view page example single_feature
-    Then you can see a feature user-can-see-a-requirement has text User can see a requirement
+    Then you can see a feature user-can-see-a-requirement has text Feature: User can see a requirement
 
   Scenario: Multiple features
     Given a cucumber example output multiple_features
@@ -28,7 +28,7 @@ Ability: User can see a requirement
         "id": "user-can-see-one-requirement"
       },
       {
-        "keyword": "Ability",
+        "keyword": "Feature",
         "name": "User can see another requirement",
         "line": 1,
         "id": "user-can-see-another-requirement"
@@ -38,6 +38,6 @@ Ability: User can see a requirement
     When you view page example multiple_features
     Then you can see features:
       | id                               | text                             |
-      | user-can-see-one-requirement     | User can see one requirement     |
-      | user-can-see-another-requirement | User can see another requirement |
+      | user-can-see-one-requirement     | Ability: User can see one requirement     |
+      | user-can-see-another-requirement | Feature: User can see another requirement |
 

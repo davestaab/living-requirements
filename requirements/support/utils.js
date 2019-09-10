@@ -9,6 +9,6 @@ export async function checkFeatureTable(context, table) {
 }
 
 export async function checkFeature(context, id, text) {
-  const content = await context.page.$eval(`#${id}`, (e) => e.innerHTML)
+  const content = await context.page.$eval(`#${id}`, (e) => e.innerHTML.trim())
   assert.strictEqual(content, text)
 }

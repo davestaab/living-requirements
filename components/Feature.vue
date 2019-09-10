@@ -1,5 +1,7 @@
 <template>
-  <h1 :id="feature.id" data-testid="featureName">{{ feature.name }}</h1>
+  <h1 :id="feature.id" data-testid="featureName">
+    {{ feature.keyword }}: {{ feature.name }}
+  </h1>
 </template>
 
 <script>
