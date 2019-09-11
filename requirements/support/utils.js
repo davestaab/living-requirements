@@ -46,11 +46,42 @@ export async function assertScenarioName(context, id, name) {
 }
 
 export async function assertSteps(context, scenarioId, dataTable) {
+  const rows = dataTable.hashes()
+  const first = rows[0]
+  if (first.name) await assertStepsName(context, scenarioId, rows)
+  if (first.status) await assertStepsStatus(context, scenarioId, rows)
+}
+
+async function assertStepsName(context, scenarioId, tableRows) {
   const names = await context.page.$$eval(
-    `#${cleanId(scenarioId)} [data-testid="step"]`,
+    `#${cleanId(scenarioId)} [data-testid="stepName"]`,
     (e) => e.map((e2) => e2.innerHTML.trim())
   )
-  dataTable.hashes().map((r, i) => {
+  tableRows.map((r, i) => {
     assert.strictEqual(names[i], r.name)
   })
+}
+
+async function assertStepsStatus(context, scenarioId, tableRows) {
+  const classes = await context.page.$$eval(
+    `#${cleanId(scenarioId)} [data-testid="stepStatus"]`,
+    (e) => e.map((e2) => e2.classList.value)
+  )
+  tableRows.map((r, i) => {
+    assert(statusToRegex(r.status).test(classes[i]))
+  })
+}
+function statusToRegex(status) {
+  switch (status) {
+    case 'failed':
+      return /.*mdi-alert-circle-outline.*/
+    case 'passed':
+      return /.*mdi-check.*/
+    case 'pending':
+      return /.*mdi-clock-outline.*/
+    case 'skipped':
+      return /.*mdi-debug-step-over.*/
+    case 'undefined':
+      return /.*mdi-checkbox-blank-outline.*/
+  }
 }

@@ -19,6 +19,10 @@ Before('not @pending', async function() {
   }
 })
 
+Before('@pending', function() {
+  return 'pending'
+})
+
 After('not @pending', async function() {})
 
 AfterAll('not @pending', async function() {

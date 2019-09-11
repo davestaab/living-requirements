@@ -17,7 +17,7 @@ Ability: User can see a requirement
       }
     ]
     """
-    When you view page example single_feature
+    When you view page examples single_feature
     Then you can see a feature user-can-see-a-requirement has text Feature: User can see a requirement
 
   Scenario: Multiple features
@@ -38,7 +38,7 @@ Ability: User can see a requirement
       }
     ]
     """
-    When you view page example multiple_features
+    When you view page examples multiple_features
     Then you can see features:
       | id                               | text                                      |
       | user-can-see-one-requirement     | Ability: User can see one requirement     |
@@ -56,7 +56,7 @@ Ability: User can see a requirement
       }
     ]
     """
-    When you view page example feature_with_description
+    When you view page examples feature_with_description
     Then you can see a feature user-can-see-a-requirement has text Feature: User can see a requirement
     Then you can see a feature user-can-see-a-requirement has description "In order to understand how the software works\nAs a user\nI want to see each requirement"
 
@@ -81,7 +81,7 @@ Ability: User can see a requirement
         }
       ]
       """
-    When you view page example feature_with_tags
+    When you view page examples feature_with_tags
     Then you can see a feature can-see-tags has tags:
       | tag         |
       | @tag        |

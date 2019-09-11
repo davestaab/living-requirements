@@ -24,7 +24,7 @@ Ability: User can see scenarios for features
       }
     ]
     """
-    When you view page example scenario_title
+    When you view page examples scenario_title
     Then you can see a scenario user-can-see-a-requirement;simple-feature has name Scenario: Simple feature
 
   Scenario: Can see scenario tags
@@ -56,11 +56,12 @@ Ability: User can see scenarios for features
       }
     ]
     """
-    When you view page example scenario_tags
+    When you view page examples scenario_tags
     Then you can see a scenario user-can-see-a-requirement;simple-feature has tags:
       | tag      |
       | @debug   |
       | @another |
 
+    @pending
     Scenario: Can see scenario description
-      Given a pending scenario
+#      Given a pending scenario

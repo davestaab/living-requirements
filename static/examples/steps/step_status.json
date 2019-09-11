@@ -1,0 +1,40 @@
+{
+  "id": "scenario-with-steps",
+  "steps": [
+    {
+      "keyword": "Given ",
+      "name": "passed",
+      "result": {
+        "status": "passed"
+      }
+    },
+    {
+      "keyword": "Given ",
+      "name": "pending",
+      "result": {
+        "status": "pending"
+      }
+    },
+    {
+      "keyword": "Given ",
+      "name": "skipped",
+      "result": {
+        "status": "skipped"
+      }
+    },
+    {
+      "keyword": "Given ",
+      "name": "failed",
+      "result": {
+        "status": "failed"
+      }
+    },
+    {
+      "keyword": "Given ",
+      "name": "undefined",
+      "result": {
+        "status": "undefined"
+      }
+    }
+  ]
+}
