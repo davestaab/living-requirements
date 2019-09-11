@@ -62,6 +62,25 @@ Ability: User can see scenarios for features
       | @debug   |
       | @another |
 
-    @pending
-    Scenario: Can see scenario description
-#      Given a pending scenario
+  Scenario: Can see scenario description
+    Given a cucumber example output scenario_with_description
+    """
+    [
+      {
+        "keyword": "Feature",
+        "name": "User can see a requirement",
+        "id": "user-can-see-a-requirement",
+        "elements": [
+          {
+            "id": "user-can-see-a-requirement;simple-feature",
+            "keyword": "Scenario",
+            "name": "Simple feature",
+            "type": "scenario",
+            "description": "In order to understand how the software works\nAs a user\nI want to see each requirement"
+          }
+        ]
+      }
+    ]
+    """
+    When you view page examples scenario_with_description
+    Then you can see a scenario user-can-see-a-requirement;simple-feature has description In order to understand how the software works\nAs a user\nI want to see each requirement

@@ -6,7 +6,8 @@ import {
   assertFeatureDescription,
   assertTags,
   assertScenarioName,
-  assertSteps
+  assertSteps,
+  assertScenarioDescription
 } from './utils'
 
 Given('a cucumber example output {word}', function(name, docString) {
@@ -61,6 +62,13 @@ Then('you can see a scenario {} has name {}', async function(
   scenarioName
 ) {
   await assertScenarioName(this, scenarioId, scenarioName)
+})
+
+Then('you can see a scenario {} has description {}', async function(
+  scenarioId,
+  description
+) {
+  await assertScenarioDescription(this, scenarioId, description)
 })
 
 Then('you can see steps for scenario {}', async function(

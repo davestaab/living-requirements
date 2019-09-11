@@ -4,6 +4,7 @@
     <h2 data-testid="scenarioName">
       {{ scenario.keyword }}: {{ scenario.name }}
     </h2>
+    <pre data-testid="scenarioDescription">{{ scenario.description }}</pre>
     <step v-for="(s, i) in scenario.steps" :key="i" :step="s"></step>
   </div>
 </template>

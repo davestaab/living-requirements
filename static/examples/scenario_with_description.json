@@ -1,0 +1,16 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "User can see a requirement",
+    "id": "user-can-see-a-requirement",
+    "elements": [
+      {
+        "id": "user-can-see-a-requirement;simple-feature",
+        "keyword": "Scenario",
+        "name": "Simple feature",
+        "type": "scenario",
+        "description": "In order to understand how the software works\nAs a user\nI want to see each requirement"
+      }
+    ]
+  }
+]

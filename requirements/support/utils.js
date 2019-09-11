@@ -45,6 +45,14 @@ export async function assertScenarioName(context, id, name) {
   assert.strictEqual(actual, name)
 }
 
+export async function assertScenarioDescription(context, id, desc) {
+  const actual = await context.page.$eval(
+    `#${cleanId(id)} [data-testid="scenarioDescription"]`,
+    (e) => e.textContent.trim()
+  )
+  assert.strictEqual(cleanString(actual), cleanString(desc))
+}
+
 export async function assertSteps(context, scenarioId, dataTable) {
   const rows = dataTable.hashes()
   const first = rows[0]
