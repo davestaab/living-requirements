@@ -93,3 +93,26 @@ function statusToRegex(status) {
       return /.*mdi-checkbox-blank-outline.*/
   }
 }
+
+export async function assertScenarioStepSummary(
+  context,
+  scenarioId,
+  summaryTable
+) {
+  const actual = await context.page.$$eval(
+    `#${cleanId(scenarioId)} [data-testid="stepResult"]`,
+    (list) =>
+      list.map((e) => {
+        return {
+          status: e.getAttribute('data-step-status'),
+          count: e.textContent.trim()
+        }
+      })
+  )
+  // console.log('actual', actual)
+  summaryTable.hashes().map((row, i) => {
+    assert.strictEqual(actual[i].count, row.count)
+    assert.strictEqual(actual[i].status, row.status)
+  })
+  // assert(false)
+}

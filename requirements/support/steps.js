@@ -7,7 +7,8 @@ import {
   assertTags,
   assertScenarioName,
   assertSteps,
-  assertScenarioDescription
+  assertScenarioDescription,
+  assertScenarioStepSummary
 } from './utils'
 
 Given('a cucumber example output {word}', function(name, docString) {
@@ -76,4 +77,11 @@ Then('you can see steps for scenario {}', async function(
   dataTable
 ) {
   await assertSteps(this, scenarioId, dataTable)
+})
+
+Then('you can see a step summary for scenario {}', async function(
+  scenarioId,
+  dataTable
+) {
+  await assertScenarioStepSummary(this, scenarioId, dataTable)
 })

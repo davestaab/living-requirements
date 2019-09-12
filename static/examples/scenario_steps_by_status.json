@@ -1,0 +1,59 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Scenario Steps",
+    "id": "user-can-see-a-requirement",
+    "elements": [
+      {
+        "id": "user-can-see-a-requirement;simple-feature",
+        "keyword": "Scenario",
+        "name": "One step of every type",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "passed",
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "Given ",
+            "name": "pending",
+            "result": {
+              "status": "pending"
+            }
+          },
+          {
+            "keyword": "Given ",
+            "name": "skipped",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "Given ",
+            "name": "failed",
+            "result": {
+              "status": "failed"
+            }
+          },
+          {
+            "keyword": "Given ",
+            "name": "undefined",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "keyword": "Given ",
+            "name": "passed",
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

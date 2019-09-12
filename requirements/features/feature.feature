@@ -3,24 +3,7 @@ Ability: User can see a requirement
   As a user
   I want to see each requirement
 
-  Scenario: Simple feature
-    Given a cucumber example output single_feature
-    """
-    [
-      {
-        "keyword": "Feature",
-        "name": "User can see a requirement",
-        "line": 1,
-        "id": "user-can-see-a-requirement",
-        "tags": [],
-        "uri": "requirements\\features\\requirements.feature"
-      }
-    ]
-    """
-    When you view page examples single_feature
-    Then you can see a feature user-can-see-a-requirement has text Feature: User can see a requirement
-
-  Scenario: Multiple features
+  Scenario: Can see multiple features
     Given a cucumber example output multiple_features
     """
     [
@@ -44,7 +27,7 @@ Ability: User can see a requirement
       | user-can-see-one-requirement     | Ability: User can see one requirement     |
       | user-can-see-another-requirement | Feature: User can see another requirement |
 
-  Scenario: See feature description
+  Scenario: Can see feature description
     Given a cucumber example output feature_with_description
     """
     [

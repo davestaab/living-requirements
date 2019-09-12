@@ -1,7 +1,9 @@
 <template>
   <div :id="feature.id">
     <tags :tags="feature.tags"></tags>
-    <h1 data-testid="featureName">{{ feature.keyword }}: {{ feature.name }}</h1>
+    <div data-testid="featureName" class="display-1 mb-6">
+      {{ feature.keyword }}: {{ feature.name }}
+    </div>
     <pre data-testid="featureDescription">{{ feature.description }}</pre>
     <scenario
       v-for="(s, i) in feature.elements"
