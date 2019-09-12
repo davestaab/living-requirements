@@ -1,7 +1,7 @@
 Ability: User can see the requirements for the living requirements module
 
   Scenario: Load last test run
-    When you view page self snapshot
+    When you view page specs/snapshot
     Then you can see features:
       | id                                                               | text                                                                      |
       | user-can-see-a-requirement                                       | Ability: User can see a requirement                                       |

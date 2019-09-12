@@ -20,7 +20,7 @@ Ability: User should be able to see scenario steps
       ]
     }
     """
-    When you view page examples/steps step_name
+    When you view page examples/steps/step_name
     Then you can see steps for scenario scenario-with-steps
       | name                                           |
       | Given a cucumber example output single_feature |
@@ -70,7 +70,7 @@ Ability: User should be able to see scenario steps
       ]
     }
     """
-    When you view page examples/steps step_status
+    When you view page examples/steps/step_status
     Then you can see steps for scenario scenario-with-steps
       | status    |
       | passed    |
