@@ -116,3 +116,7 @@ export async function assertScenarioStepSummary(
   })
   // assert(false)
 }
+
+export async function clickElement(context, selector) {
+  await context.page.$eval(selector, (e) => e && e.click())
+}

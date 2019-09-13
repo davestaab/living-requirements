@@ -1,15 +1,13 @@
 <template>
-  <div>
-    <feature v-for="(e, i) in example" :key="i" :feature="e"> </feature>
-  </div>
+  <suite :suite="example"> </suite>
 </template>
 
 <script>
-import Feature from '@/components/Feature'
+import Suite from '@/components/Suite'
 
 export default {
   name: 'Requirements',
-  components: { Feature },
+  components: { Suite },
   async asyncData({ params, $axios }) {
     const example = await $axios.$get(`/examples/${params.example}.json`)
     return {

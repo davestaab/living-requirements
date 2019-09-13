@@ -40,7 +40,7 @@ Ability: User can see a requirement
     ]
     """
     When you view page examples/feature_with_description
-    Then you can see a feature user-can-see-a-requirement has text Feature: User can see a requirement
+    And you click feature user-can-see-a-requirement
     Then you can see a feature user-can-see-a-requirement has description "In order to understand how the software works\nAs a user\nI want to see each requirement"
 
   Scenario: Can see feature tags

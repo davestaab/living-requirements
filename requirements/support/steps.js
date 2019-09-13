@@ -8,7 +8,8 @@ import {
   assertScenarioName,
   assertSteps,
   assertScenarioDescription,
-  assertScenarioStepSummary
+  assertScenarioStepSummary,
+  clickElement
 } from './utils'
 
 Given('a cucumber example output {word}', function(name, docString) {
@@ -29,6 +30,10 @@ Given('a pending scenario', function() {
 
 When('you view page {word}', async function(page) {
   await this.page.goto(`http://localhost:3000/${page}`)
+})
+
+When('you click feature {}', async function(featureId) {
+  await clickElement(this, `#${featureId} .v-expansion-panel-header`)
 })
 
 Then('you can see a feature {} has text {}', async function(featureId, text) {

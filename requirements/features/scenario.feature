@@ -25,6 +25,7 @@ Ability: User can see scenarios for features
     ]
     """
     When you view page examples/scenario_title
+    And you click feature user-can-see-a-requirement
     Then you can see a scenario user-can-see-a-requirement;simple-feature has name Scenario: Simple feature
 
   Scenario: Can see scenario tags
@@ -57,6 +58,7 @@ Ability: User can see scenarios for features
     ]
     """
     When you view page examples/scenario_tags
+    And you click feature user-can-see-a-requirement
     Then you can see a scenario user-can-see-a-requirement;simple-feature has tags:
       | tag      |
       | @debug   |
@@ -83,6 +85,7 @@ Ability: User can see scenarios for features
     ]
     """
     When you view page examples/scenario_with_description
+    And you click feature user-can-see-a-requirement
     Then you can see a scenario user-can-see-a-requirement;simple-feature has description In order to understand how the software works\nAs a user\nI want to see each requirement
 
   Scenario: Can see step counts by status
@@ -149,6 +152,7 @@ Ability: User can see scenarios for features
       ]
       """
     When you view page examples/scenario_steps_by_status
+    And you click feature user-can-see-a-requirement
     Then you can see a step summary for scenario user-can-see-a-requirement;simple-feature
       | status    | count |
       | passed    | 2     |
