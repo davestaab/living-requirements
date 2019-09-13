@@ -1,15 +1,15 @@
 <template>
   <div :id="example.id">
-    <step v-for="(s, i) in example.steps" :key="i" :step="s"> </step>
+    <steps :steps="example.steps"> </steps>
   </div>
 </template>
 
 <script>
-import Step from '@/components/Step'
+import Steps from '@/components/Steps'
 
 export default {
   name: 'ExampleStep',
-  components: { Step },
+  components: { Steps },
   async asyncData({ params, $axios }) {
     const example = await $axios.$get(`/examples/steps/${params.step}.json`)
     return {

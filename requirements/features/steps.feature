@@ -78,3 +78,41 @@ Ability: User should be able to see scenario steps
       | skipped   |
       | failed    |
       | undefined |
+
+  Scenario: You should not see hidden steps
+  cucumber adds a hidden: true flag to some steps like before/after
+  Those steps won't be displayed.
+    Given a cucumber example steps output steps_hidden:
+    """
+    {
+      "id": "scenario-with-hidden-steps",
+      "steps": [
+        {
+          "keyword": "Before ",
+          "hidden": "true",
+          "result": {
+            "status": "passed"
+          }
+        },
+        {
+          "keyword": "Then ",
+          "name": "a passing assertion",
+          "result": {
+            "status": "passed"
+          }
+        },
+        {
+          "keyword": "After ",
+          "hidden": "true",
+          "result": {
+            "status": "pending"
+          }
+        }
+      ]
+    }
+    """
+    When you view page examples/steps/steps_hidden
+    Then you can see 1 step for scenario scenario-with-hidden-steps
+    And you can see steps for scenario scenario-with-hidden-steps
+      | status | name                     |
+      | passed | Then a passing assertion |

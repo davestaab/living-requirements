@@ -1,4 +1,5 @@
 import assert from 'assert'
+import head from 'lodash/fp/head'
 import { cleanId } from '../../components/utils'
 
 export async function assertFeatureTable(context, table) {
@@ -55,9 +56,9 @@ export async function assertScenarioDescription(context, id, desc) {
 
 export async function assertSteps(context, scenarioId, dataTable) {
   const rows = dataTable.hashes()
-  const first = rows[0]
-  if (first.name) await assertStepsName(context, scenarioId, rows)
-  if (first.status) await assertStepsStatus(context, scenarioId, rows)
+  const { name, status } = head(rows)
+  if (name) await assertStepsName(context, scenarioId, rows)
+  if (status) await assertStepsStatus(context, scenarioId, rows)
 }
 
 async function assertStepsName(context, scenarioId, tableRows) {
@@ -71,27 +72,13 @@ async function assertStepsName(context, scenarioId, tableRows) {
 }
 
 async function assertStepsStatus(context, scenarioId, tableRows) {
-  const classes = await context.page.$$eval(
-    `#${cleanId(scenarioId)} [data-testid="stepStatus"]`,
-    (e) => e.map((e2) => e2.classList.value)
+  const statuses = await context.page.$$eval(
+    `#${cleanId(scenarioId)} [data-testid="stepName"]`,
+    (e) => e.map((e2) => e2.getAttribute('data-step-status'))
   )
   tableRows.map((r, i) => {
-    assert(statusToRegex(r.status).test(classes[i]))
+    assert.strictEqual(r.status, statuses[i])
   })
-}
-function statusToRegex(status) {
-  switch (status) {
-    case 'failed':
-      return /.*mdi-alert-circle-outline.*/
-    case 'passed':
-      return /.*mdi-check.*/
-    case 'pending':
-      return /.*mdi-clock-outline.*/
-    case 'skipped':
-      return /.*mdi-debug-step-over.*/
-    case 'undefined':
-      return /.*mdi-checkbox-blank-outline.*/
-  }
 }
 
 export async function assertScenarioStepSummary(
@@ -119,4 +106,16 @@ export async function assertScenarioStepSummary(
 
 export async function clickElement(context, selector) {
   await context.page.$eval(selector, (e) => e && e.click())
+}
+
+export async function assertScenarioStepCount(
+  context,
+  expectedCount,
+  scenarioId
+) {
+  const actualCount = await context.page.$$eval(
+    `#${cleanId(scenarioId)} [data-testid="stepName"]`,
+    (e) => e.length
+  )
+  assert.strictEqual(actualCount, expectedCount)
 }

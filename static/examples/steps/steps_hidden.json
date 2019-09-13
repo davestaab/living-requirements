@@ -1,0 +1,26 @@
+{
+  "id": "scenario-with-hidden-steps",
+  "steps": [
+    {
+      "keyword": "Before ",
+      "hidden": "true",
+      "result": {
+        "status": "passed"
+      }
+    },
+    {
+      "keyword": "Then ",
+      "name": "a passing assertion",
+      "result": {
+        "status": "passed"
+      }
+    },
+    {
+      "keyword": "After ",
+      "hidden": "true",
+      "result": {
+        "status": "pending"
+      }
+    }
+  ]
+}

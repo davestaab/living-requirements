@@ -8,8 +8,11 @@
       {{ scenario.keyword }}: {{ scenario.name }}
       <scenario-step-results :steps="scenario.steps"></scenario-step-results>
     </div>
-    <pre data-testid="scenarioDescription">{{ scenario.description }}</pre>
-    <step v-for="(s, i) in scenario.steps" :key="i" :step="s"></step>
+    <pre data-testid="scenarioDescription" class="mb-6">{{
+      scenario.description
+    }}</pre>
+    <!--    <Steps v-for="(s, i) in scenario.steps" :key="i" :step="s"></Steps>-->
+    <steps :steps="scenario.steps" class="mb-6"></steps>
   </div>
 </template>
 
@@ -17,13 +20,13 @@
 import { cleanId } from './utils'
 import Tags from './Tags'
 import ScenarioStepResults from './ScenarioStepResults'
-import Step from './Step'
+import Steps from './Steps'
 
 export default {
   name: 'Scenario',
   components: {
     Tags,
-    Step,
+    Steps,
     ScenarioStepResults
   },
   props: {

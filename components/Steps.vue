@@ -1,28 +1,37 @@
 <template>
   <div>
-    <v-icon data-testid="stepStatus" :color="statusColor">{{
-      statusIcon
-    }}</v-icon>
-    <span data-testid="stepName">{{ step.keyword }}{{ step.name }}</span>
+    <div v-for="(step, i) in filteredSteps" :key="i">
+      <v-icon :color="statusColor(step)">{{ statusIcon(step) }}</v-icon>
+      <span data-testid="stepName" :data-step-status="stepStatus(step)"
+        >{{ step.keyword }}{{ step.name }}</span
+      >
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Step',
+  name: 'Steps',
   components: {},
   props: {
-    step: {
-      required: true,
-      type: Object
+    steps: {
+      type: Array,
+      default() {
+        return []
+      }
     }
   },
   computed: {
-    status() {
-      return this.step.result ? this.step.result.status : ''
+    filteredSteps() {
+      return this.steps.filter((s) => !s.hidden)
+    }
+  },
+  methods: {
+    stepStatus(s) {
+      return s.result ? s.result.status : ''
     },
-    statusIcon() {
-      switch (this.status) {
+    statusIcon(s) {
+      switch (this.stepStatus(s)) {
         case 'failed':
           return 'mdi-alert-circle-outline'
         case 'passed':
@@ -37,8 +46,8 @@ export default {
           return 'mdi-cancel'
       }
     },
-    statusColor() {
-      switch (this.status) {
+    statusColor(s) {
+      switch (this.stepStatus(s)) {
         case 'failed':
           return 'red'
         case 'passed':

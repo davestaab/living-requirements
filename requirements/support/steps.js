@@ -9,7 +9,8 @@ import {
   assertSteps,
   assertScenarioDescription,
   assertScenarioStepSummary,
-  clickElement
+  clickElement,
+  assertScenarioStepCount
 } from './utils'
 
 Given('a cucumber example output {word}', function(name, docString) {
@@ -85,4 +86,8 @@ Then('you can see a step summary for scenario {}', async function(
   dataTable
 ) {
   await assertScenarioStepSummary(this, scenarioId, dataTable)
+})
+
+Then('you can see {int} step(s) for scenario {}', function(count, scenarioId) {
+  return assertScenarioStepCount(this, count, scenarioId)
 })
