@@ -1,4 +1,4 @@
-Ability: User can see a requirement
+Ability: User can see Features/Abilities
   In order to understand how the software works
   As a user
   I want to see each requirement

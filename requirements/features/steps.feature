@@ -1,4 +1,4 @@
-Ability: User should be able to see scenario steps
+Ability: User can see Steps
   In order to see details about a scenario
   As a User
   I want to the steps taken for a scenario

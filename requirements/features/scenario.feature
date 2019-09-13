@@ -1,4 +1,5 @@
-Ability: User can see scenarios for features
+@tag
+Ability: User can see Scenarios
   In order to see examples of the feature
   As a user
   I want to see scenarios illustrating the features
@@ -194,5 +195,5 @@ Ability: User can see scenarios for features
     When you view page examples/scenario_steps_no_hidden
     And you click feature dont-count-hidden-steps
     Then you can see a step summary for scenario dont-count-hidden-steps;hidden-steps
-      | status    | count |
-      | passed    | 1     |
+      | status | count |
+      | passed | 1     |
