@@ -161,3 +161,38 @@ Ability: User can see scenarios for features
       | failed    | 1     |
       | undefined | 1     |
 
+  Scenario: Step count should not count hidden steps
+    Given a cucumber example output scenario_steps_no_hidden
+    """
+    [{
+      "keyword": "Feature",
+      "name": "Don't count hidden steps",
+      "id": "dont-count-hidden-steps",
+      "elements": [{
+        "id": "dont-count-hidden-steps;hidden-steps",
+        "keyword": "Scenario",
+        "name": "Hidden steps",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before ",
+            "hidden": "true",
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "a passing assertion",
+            "result": {
+              "status": "passed"
+            }
+          }]
+        }]
+      }]
+      """
+    When you view page examples/scenario_steps_no_hidden
+    And you click feature dont-count-hidden-steps
+    Then you can see a step summary for scenario dont-count-hidden-steps;hidden-steps
+      | status    | count |
+      | passed    | 1     |

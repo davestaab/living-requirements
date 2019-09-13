@@ -1,5 +1,5 @@
 <template>
-  <v-expansion-panels multiple>
+  <v-expansion-panels multiple inset>
     <feature v-for="(f, i) in suite" :key="i" :feature="f">
       <scenario v-for="(s, j) in f.elements" :key="j" :scenario="s"></scenario>
     </feature>

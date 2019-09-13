@@ -1,6 +1,25 @@
 # living-requirements
 
-> User Interface to display requirements from cucumber specifications
+> Renders cucumber spec output as a living requirements suite 
+
+## The Problem
+
+How should your software work? How does it work? These seems like basic questions that should be simple to answer. 
+
+But where do you go to know for sure? What if the spec docs are out of date? How do you know if they're still accurate? How do you know everything is working after new features are added? How do you know nothing broke after code is refactored? What is there's a dispute about how it should work or does work?
+
+These are all questions that can be answered by Behavior Driven Design (BDD) methodology and the Cucumber tool for 
+
+### Discovery
+
+Most people learn about software by using it. 
+
+So by definition 
+
+How do you know what it can do? How do you learn about features? What is you don't access to a feature?
+
+### Verification
+ 
 
 ## Build Setup
 
@@ -20,3 +39,7 @@ $ yarn generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+## Inspiration
+
+Heavily inspired by [Cucumber HTML Reporter](https://github.com/gkushang/cucumber-html-reporter)

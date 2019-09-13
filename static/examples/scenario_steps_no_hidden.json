@@ -1,0 +1,26 @@
+[{
+  "keyword": "Feature",
+  "name": "Don't count hidden steps",
+  "id": "dont-count-hidden-steps",
+  "elements": [{
+    "id": "dont-count-hidden-steps;hidden-steps",
+    "keyword": "Scenario",
+    "name": "Hidden steps",
+    "type": "scenario",
+    "steps": [
+      {
+        "keyword": "Before ",
+        "hidden": "true",
+        "result": {
+          "status": "passed"
+        }
+      },
+      {
+        "keyword": "Then ",
+        "name": "a passing assertion",
+        "result": {
+          "status": "passed"
+        }
+      }]
+    }]
+  }]

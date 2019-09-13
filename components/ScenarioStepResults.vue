@@ -17,6 +17,7 @@
 <script>
 import groupBy from 'lodash/fp/groupBy'
 import compose from 'lodash/fp/compose'
+import filter from 'lodash/fp/filter'
 
 export default {
   name: 'ScenarioStepResults',
@@ -39,7 +40,8 @@ export default {
             }
           })
         },
-        groupBy('result.status')
+        groupBy('result.status'),
+        filter((s) => !s.hidden)
       )(this.steps)
     }
   },

@@ -69,3 +69,5 @@ Ability: User can see a requirement
       | tag         |
       | @tag        |
       | @anotherTag |
+
+  Scenario: Can see scenario summary
