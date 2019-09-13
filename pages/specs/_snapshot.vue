@@ -1,19 +1,17 @@
 <template>
-  <div>
-    <feature v-for="(e, i) in suit" :key="i" :feature="e"> </feature>
-  </div>
+  <suite :suite="suite" />
 </template>
 
 <script>
-import Feature from '@/components/Feature'
+import Suite from '@/components/Suite'
 
 export default {
   name: 'Snapshot',
-  components: { Feature },
+  components: { Suite },
   async asyncData({ $axios }) {
-    const suit = await $axios.$get('/output/cucumber_report_snapshot.json')
+    const suite = await $axios.$get('/output/cucumber_report_snapshot.json')
     return {
-      suit
+      suite
     }
   }
 }
