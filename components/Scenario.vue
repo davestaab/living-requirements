@@ -8,7 +8,7 @@
       {{ scenario.keyword }}: {{ scenario.name }}
       <status-summary :summary="summary"></status-summary>
     </div>
-    <pre data-testid="scenarioDescription" class="mb-6">{{
+    <pre data-testid="scenarioDescription" class="description mb-6">{{
       scenario.description
     }}</pre>
     <steps :steps="scenario.steps" class="mb-6"></steps>
@@ -45,4 +45,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.description {
+  white-space: normal;
+}
+</style>

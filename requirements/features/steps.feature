@@ -81,7 +81,7 @@ Ability: User can see Steps
       | undefined |
 
   Scenario: You should not see hidden steps
-  cucumber adds a hidden: true flag to some steps like before/after
+  Cucumber adds a hidden: true flag to some steps like before/after.
   Those steps won't be displayed.
     Given a cucumber example steps output steps_hidden:
     """
