@@ -55,5 +55,6 @@ export default {
 .status-summary {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
 </style>
