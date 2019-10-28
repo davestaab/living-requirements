@@ -1,4 +1,4 @@
- @feature:scenarios
+@feature:scenarios
 Ability: User can see Scenarios
   In order to see examples of the feature
   As a user

@@ -1,4 +1,4 @@
- @feature:features
+@feature:features
 Ability: User can see Features/Abilities
   In order to understand how the software works
   As a user
