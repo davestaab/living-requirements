@@ -1,3 +1,4 @@
+ @feature:features
 Ability: User can see Features/Abilities
   In order to understand how the software works
   As a user
@@ -70,4 +71,58 @@ Ability: User can see Features/Abilities
       | @tag        |
       | @anotherTag |
 
-  Scenario: Can see scenario summary
+  Scenario: Can see Feature summary
+    Given a cucumber example output feature_summary
+      """
+      [
+        {
+          "keyword": "Ability",
+          "name": "Can see feature summary",
+          "id": "can-see-feature-summary",
+          "elements": [
+            {
+              "id": "can-see-scenario-summary;failed-scenario",
+              "keyword": "Scenario",
+              "name": "failed scenario",
+              "type": "scenario",
+              "steps": [
+                {
+                  "keyword": "Given ",
+                  "name": "passed",
+                  "result": {
+                    "status": "passed"
+                  }
+                },
+                {
+                  "keyword": "Given ",
+                  "name": "failed",
+                  "result": {
+                    "status": "failed"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "can-see-scenario-summary;passing-scenario",
+              "keyword": "Scenario",
+              "name": "passing scenario",
+              "type": "scenario",
+              "steps": [
+                {
+                  "keyword": "Given ",
+                  "name": "passed",
+                  "result": {
+                    "status": "passed"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+      """
+    When you view page examples/feature_summary
+    Then you can see a scenario summary for feature can-see-feature-summary
+      | status | count |
+      | failed | 1     |
+      | passed | 1     |

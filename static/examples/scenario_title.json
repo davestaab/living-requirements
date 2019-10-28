@@ -10,7 +10,8 @@
         "id": "user-can-see-a-requirement;simple-feature",
         "keyword": "Scenario",
         "name": "Simple feature",
-        "type": "scenario"
+        "type": "scenario",
+        "steps":[]
       }
     ]
   }

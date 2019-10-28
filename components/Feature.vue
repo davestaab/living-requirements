@@ -6,6 +6,7 @@
         <span data-testid="featureName" class="display-1 my-6">
           {{ feature.keyword }}: {{ feature.name }}
         </span>
+        <status-summary :summary="featureSummary"></status-summary>
       </div>
     </v-expansion-panel-header>
     <v-expansion-panel-content>
@@ -19,16 +20,24 @@
 
 <script>
 import Tags from './Tags'
+import { getFeatureSummary } from './utils'
+import StatusSummary from './StatusSummary'
 
 export default {
   name: 'Feature',
   components: {
-    Tags
+    Tags,
+    StatusSummary
   },
   props: {
     feature: {
       required: true,
       type: Object
+    }
+  },
+  computed: {
+    featureSummary() {
+      return getFeatureSummary(this.feature)
     }
   }
 }

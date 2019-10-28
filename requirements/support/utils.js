@@ -96,7 +96,6 @@ export async function assertScenarioStepSummary(
         }
       })
   )
-  // console.log('actual', actual)
   summaryTable.hashes().map((row, i) => {
     assert.strictEqual(actual[i].count, row.count)
     assert.strictEqual(actual[i].status, row.status)
@@ -118,4 +117,25 @@ export async function assertScenarioStepCount(
     (e) => e.length
   )
   assert.strictEqual(actualCount, expectedCount)
+}
+
+export async function assertFeatureScenarioSummary(
+  context,
+  featureId,
+  summaryTable
+) {
+  const statuses = await context.page.$$eval(
+    `#${featureId} [data-testid="stepResult"]`,
+    (e) =>
+      e.map((e2) => {
+        return {
+          status: e2.getAttribute('data-step-status'),
+          count: e2.textContent.trim()
+        }
+      })
+  )
+  summaryTable.hashes().map((row, i) => {
+    assert.strictEqual(statuses[i].status, row.status)
+    assert.strictEqual(statuses[i].count, row.count)
+  })
 }

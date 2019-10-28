@@ -6,20 +6,19 @@
       class="d-flex justify-space-between title mb-3"
     >
       {{ scenario.keyword }}: {{ scenario.name }}
-      <scenario-step-results :steps="scenario.steps"></scenario-step-results>
+      <status-summary :summary="summary"></status-summary>
     </div>
     <pre data-testid="scenarioDescription" class="mb-6">{{
       scenario.description
     }}</pre>
-    <!--    <Steps v-for="(s, i) in scenario.steps" :key="i" :step="s"></Steps>-->
     <steps :steps="scenario.steps" class="mb-6"></steps>
   </div>
 </template>
 
 <script>
-import { cleanId } from './utils'
+import { cleanId, getScenarioStepSummary } from './utils'
 import Tags from './Tags'
-import ScenarioStepResults from './ScenarioStepResults'
+import StatusSummary from './StatusSummary'
 import Steps from './Steps'
 
 export default {
@@ -27,7 +26,7 @@ export default {
   components: {
     Tags,
     Steps,
-    ScenarioStepResults
+    StatusSummary
   },
   props: {
     scenario: {
@@ -38,6 +37,9 @@ export default {
   computed: {
     cleanId() {
       return cleanId(this.scenario.id)
+    },
+    summary() {
+      return getScenarioStepSummary(this.scenario.steps)
     }
   }
 }

@@ -1,4 +1,4 @@
-@tag
+ @feature:scenarios
 Ability: User can see Scenarios
   In order to see examples of the feature
   As a user
@@ -19,7 +19,8 @@ Ability: User can see Scenarios
             "id": "user-can-see-a-requirement;simple-feature",
             "keyword": "Scenario",
             "name": "Simple feature",
-            "type": "scenario"
+            "type": "scenario",
+            "steps":[]
           }
         ]
       }
@@ -52,7 +53,8 @@ Ability: User can see Scenarios
               }
             ],
             "name": "Simple feature",
-            "type": "scenario"
+            "type": "scenario",
+            "steps":[]
           }
         ]
       }
@@ -79,7 +81,8 @@ Ability: User can see Scenarios
             "keyword": "Scenario",
             "name": "Simple feature",
             "type": "scenario",
-            "description": "In order to understand how the software works\nAs a user\nI want to see each requirement"
+            "description": "In order to understand how the software works\nAs a user\nI want to see each requirement",
+            "steps":[]
           }
         ]
       }

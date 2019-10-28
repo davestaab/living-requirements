@@ -1,3 +1,4 @@
+@feature:steps
 Ability: User can see Steps
   In order to see details about a scenario
   As a User

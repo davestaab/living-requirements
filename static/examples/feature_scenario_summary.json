@@ -1,0 +1,53 @@
+[
+  {
+    "keyword": "Ability",
+    "name": "Can see scenario summary",
+    "id": "can-see-scenario-summary",
+    "elements": [
+      {
+        "id": "can-see-scenario-summary;passing-scenario",
+        "keyword": "Scenario",
+        "name": "passing scenario",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "passed",
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "Given ",
+            "name": "failed",
+            "result": {
+              "status": "failed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "can-see-scenario-summary;failed-scenario",
+        "keyword": "Scenario",
+        "name": "failed scenario",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "failed",
+            "result": {
+              "status": "failed"
+            }
+          },
+          {
+            "keyword": "Given ",
+            "name": "skipped",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

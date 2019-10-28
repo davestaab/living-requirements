@@ -18,7 +18,8 @@
           }
         ],
         "name": "Simple feature",
-        "type": "scenario"
+        "type": "scenario",
+        "steps":[]
       }
     ]
   }
