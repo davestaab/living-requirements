@@ -1,18 +1,23 @@
 <template>
-  <div>
+  <div data-testid="steps">
     <div v-for="(step, i) in filteredSteps" :key="i">
       <v-icon :color="statusColor(step)">{{ statusIcon(step) }}</v-icon>
       <span data-testid="stepName" :data-step-status="stepStatus(step)"
         >{{ step.keyword }}{{ step.name }}</span
       >
+      <doc-string v-if="showDocString(step)" :step="step"></doc-string>
     </div>
   </div>
 </template>
 
 <script>
+import DocString from './DocString'
+
 export default {
   name: 'Steps',
-  components: {},
+  components: {
+    DocString
+  },
   props: {
     steps: {
       type: Array,
@@ -61,6 +66,14 @@ export default {
         default:
           return 'mdi-cancel'
       }
+    },
+    showDocString(step) {
+      return (
+        step &&
+        step.arguments &&
+        step.arguments.length > 0 &&
+        step.arguments[0].content
+      )
     }
   }
 }

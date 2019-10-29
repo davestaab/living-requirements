@@ -11,7 +11,8 @@ import {
   assertScenarioStepSummary,
   clickElement,
   assertScenarioStepCount,
-  assertFeatureScenarioSummary
+  assertFeatureScenarioSummary,
+  assertScenarioDocStrings
 } from './utils'
 
 Given('a cucumber example output {word}', function(name, docString) {
@@ -102,3 +103,15 @@ Then('you can see a scenario summary for feature {}', async function(
 ) {
   await assertFeatureScenarioSummary(this, featureId, summaryTable)
 })
+
+Then(
+  'you can see doc strings for step {int} of scenario {string}',
+  async function(stepIndex, scenarioId, expectedDocString) {
+    await assertScenarioDocStrings(
+      this,
+      stepIndex,
+      scenarioId,
+      expectedDocString
+    )
+  }
+)

@@ -200,3 +200,50 @@ Ability: User can see Scenarios
     Then you can see a step summary for scenario dont-count-hidden-steps;hidden-steps
       | status | count |
       | passed | 1     |
+
+  Scenario: Should be able to see Doc String
+    Given a cucumber example output scenario_show_doc_string
+    """
+    [{
+      "keyword": "Ability",
+      "name": "User can see doc string",
+      "id": "user-can-see-doc-string",
+      "elements": [
+        {
+          "id": "user-can-see-scenarios;should-be-able-to-see-doc-string",
+          "keyword": "Scenario",
+          "name": "Should be able to see doc string",
+          "type": "scenario",
+          "steps": [
+            {
+              "keyword": "Given ",
+              "name": "a first step",
+              "result": {
+                "status": "passed"
+              }
+            },
+            {
+              "arguments": [
+                {
+                  "content": "hello\nworld"
+                }
+              ],
+              "keyword": "Given ",
+              "name": "a second step with a doc string argument",
+              "result": {
+                "status": "passed"
+              }
+            }
+          ]
+        }
+      ]
+    }]
+    """
+    When you view page examples/scenario_show_doc_string
+    And you click feature user-can-see-doc-string
+    Then you can see doc strings for step 2 of scenario 'user-can-see-scenarios;should-be-able-to-see-doc-string'
+    """
+    hello
+    world
+    """
+

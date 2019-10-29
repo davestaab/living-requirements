@@ -2,6 +2,10 @@ import assert from 'assert'
 import head from 'lodash/fp/head'
 import { cleanId } from '../../components/utils'
 
+export function testId(id) {
+  return `[data-testid="${id}"]`
+}
+
 export async function assertFeatureTable(context, table) {
   await Promise.all(
     table.hashes().map((row) => {
@@ -138,4 +142,19 @@ export async function assertFeatureScenarioSummary(
     assert.strictEqual(statuses[i].status, row.status)
     assert.strictEqual(statuses[i].count, row.count)
   })
+}
+
+export async function assertScenarioDocStrings(
+  context,
+  stepIndex,
+  scenarioId,
+  expectedDocString
+) {
+  const content = await context.page.$eval(
+    `#${cleanId(scenarioId)} ${testId(
+      'steps'
+    )} div:nth-child(${stepIndex}) ${testId('docString')}`,
+    (e) => e.textContent.trim()
+  )
+  assert.strictEqual(content, expectedDocString)
 }
