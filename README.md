@@ -6,13 +6,13 @@
 
 How should your software work? How does it work? These seems like basic questions that should be simple to answer. 
 
-But where do you go to know for sure? What if the spec docs are out of date? How do you know if they're still accurate? How do you know everything is working after new features are added? How do you know nothing broke after code is refactored? What is there's a dispute about how it should work or does work?
+But where do you go to know for sure? You might specifications but what if the spec docs are out of date? How do you know if they're still accurate? How do you know old requirements still hold as new features are added? How do you know nothing broke after code is refactored? What is there's a dispute about how it should work or does work?
 
-These are all questions that can be answered by Behavior Driven Design (BDD) methodology and the Cucumber tool for 
+These are all questions that can be answered by Behavior Driven Design (BDD) methodology and the Cucumber tool feature development. 
 
 ### Discovery
 
-Most people learn about software by using it. 
+Most people learn about software by using it. Even developers have to refer to the   
 
 So by definition 
 
