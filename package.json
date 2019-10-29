@@ -12,9 +12,9 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "test": "jest",
     "cuke": "cucumber-js --require-module esm requirements/features --require requirements/**/*.js --format json:static/output/cucumber_report.json",
-    "cuke:allure": "cucumber-js --require-module esm requirements/features --require requirements/**/*.js --format ./requirements/allure-reporter.js:dummy.txt",
+    "cuke:allure": "cucumber-js --require-module esm requirements/features --require requirements/**/*.js --format ./scripts/allure-reporter.js:dummy.txt",
     "allure:serve": "allure serve ./output/allure-results",
-    "html-report": "node -r esm requirements/cucumber-html-reporter.js"
+    "html-report": "node -r esm scripts/cucumber-html-reporter.js"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint"
