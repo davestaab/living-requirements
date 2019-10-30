@@ -1,7 +1,13 @@
 <template>
   <v-expansion-panels multiple inset>
     <feature v-for="(f, i) in suite" :key="i" :feature="f">
-      <scenario v-for="(s, j) in f.elements" :key="j" :scenario="s"></scenario>
+      <v-expansion-panels multiple focusable>
+        <scenario
+          v-for="(s, j) in f.elements"
+          :key="j"
+          :scenario="s"
+        ></scenario>
+      </v-expansion-panels>
     </feature>
   </v-expansion-panels>
 </template>

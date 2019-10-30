@@ -1,18 +1,30 @@
 <template>
-  <div :id="cleanId">
-    <tags :tags="scenario.tags"></tags>
-    <div
-      data-testid="scenarioName"
-      class="d-flex justify-space-between title mb-3"
-    >
-      {{ scenario.keyword }}: {{ scenario.name }}
-      <status-summary :summary="summary"></status-summary>
-    </div>
-    <pre data-testid="scenarioDescription" class="description mb-6">{{
-      scenario.description
-    }}</pre>
-    <steps :steps="scenario.steps" class="mb-6"></steps>
-  </div>
+  <v-expansion-panel :id="cleanId">
+    <v-expansion-panel-header>
+      <v-container>
+        <v-row no-gutters align="center" justify="space-between">
+          <v-col cols="auto">
+            <tags :tags="scenario.tags"></tags>
+            <div
+              data-testid="scenarioName"
+              class="d-flex justify-space-between title mb-3"
+            >
+              {{ scenario.keyword }}: {{ scenario.name }}
+            </div>
+          </v-col>
+          <v-col cols="2">
+            <status-summary :summary="summary"></status-summary>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-expansion-panel-header>
+    <v-expansion-panel-content>
+      <pre data-testid="scenarioDescription" class="description mb-6">{{
+        scenario.description
+      }}</pre>
+      <steps :steps="scenario.steps" class="mb-6"></steps>
+    </v-expansion-panel-content>
+  </v-expansion-panel>
 </template>
 
 <script>

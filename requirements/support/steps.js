@@ -1,5 +1,6 @@
 import fs from 'fs'
 import { Given, When, Then } from 'cucumber'
+import { cleanId } from '../../components/utils'
 import {
   assertFeatureName,
   assertFeatureTable,
@@ -13,7 +14,8 @@ import {
   assertScenarioStepCount,
   assertFeatureScenarioSummary,
   assertScenarioDocStrings,
-  assertScenarioDataTable
+  assertScenarioDataTable,
+  assertScenarioState
 } from './utils'
 
 Given('a cucumber example output {word}', function(name, docString) {
@@ -36,8 +38,8 @@ When('you view page {word}', async function(page) {
   await this.page.goto(`http://localhost:3000/${page}`)
 })
 
-When('you click feature {}', async function(featureId) {
-  await clickElement(this, `#${featureId} .v-expansion-panel-header`)
+When('you click feature/scenario {string}', async function(elementId) {
+  await clickElement(this, `#${cleanId(elementId)} .v-expansion-panel-header`)
 })
 
 Then('you can see a feature {} has text {}', async function(featureId, text) {
@@ -128,3 +130,7 @@ Then(
     )
   }
 )
+
+Then('scenario {string} is {string}', async function(scenarioId, state) {
+  await assertScenarioState(this, scenarioId, state)
+})

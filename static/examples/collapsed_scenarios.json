@@ -1,0 +1,25 @@
+[
+  {
+    "keyword": "Ability",
+    "name": "User can see a scenario",
+    "line": 2,
+    "id": "user-can-see-a-scenario",
+    "elements": [
+      {
+        "id": "user-can-see-a-scenario;scenario-should-be-collapsed",
+        "keyword": "Scenario",
+        "name": "should be collapsed",
+        "type": "scenario",
+        "steps":[
+          {
+            "keyword": "Given ",
+            "name": "collapsed",
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

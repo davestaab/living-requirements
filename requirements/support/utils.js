@@ -186,3 +186,14 @@ function evalTableToArrays(context, rowSelector) {
     )
   )
 }
+
+export async function assertScenarioState(context, scenarioId, state) {
+  const expectExpanded = state === 'expanded' ? 'true' : 'false'
+  const isExpanded = await context.page.$eval(
+    `#${cleanId(scenarioId)}`,
+    (e) => {
+      return e.getAttribute('aria-expanded')
+    }
+  )
+  assert.strictEqual(isExpanded, expectExpanded)
+}
