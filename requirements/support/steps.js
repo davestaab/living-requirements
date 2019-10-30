@@ -12,7 +12,8 @@ import {
   clickElement,
   assertScenarioStepCount,
   assertFeatureScenarioSummary,
-  assertScenarioDocStrings
+  assertScenarioDocStrings,
+  assertScenarioDataTable
 } from './utils'
 
 Given('a cucumber example output {word}', function(name, docString) {
@@ -112,6 +113,18 @@ Then(
       stepIndex,
       scenarioId,
       expectedDocString
+    )
+  }
+)
+
+Then(
+  'you can see data table for step {int} of scenario {string}',
+  async function(stepIndex, scenarioId, expectedDataTable) {
+    await assertScenarioDataTable(
+      this,
+      stepIndex,
+      scenarioId,
+      expectedDataTable
     )
   }
 )

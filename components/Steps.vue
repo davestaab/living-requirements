@@ -6,17 +6,20 @@
         >{{ step.keyword }}{{ step.name }}</span
       >
       <doc-string v-if="showDocString(step)" :step="step"></doc-string>
+      <data-table v-if="showDataTable(step)" :step="step"></data-table>
     </div>
   </div>
 </template>
 
 <script>
 import DocString from './DocString'
+import DataTable from './DataTable'
 
 export default {
   name: 'Steps',
   components: {
-    DocString
+    DocString,
+    DataTable
   },
   props: {
     steps: {
@@ -73,6 +76,14 @@ export default {
         step.arguments &&
         step.arguments.length > 0 &&
         step.arguments[0].content
+      )
+    },
+    showDataTable(step) {
+      return (
+        step &&
+        step.arguments &&
+        step.arguments.length > 0 &&
+        step.arguments[0].rows
       )
     }
   }

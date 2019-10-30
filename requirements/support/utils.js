@@ -158,3 +158,31 @@ export async function assertScenarioDocStrings(
   )
   assert.strictEqual(content, expectedDocString)
 }
+
+export async function assertScenarioDataTable(
+  context,
+  stepIndex,
+  scenarioId,
+  expectedDataTable
+) {
+  const actual = await evalTableToArrays(
+    context,
+    `#${cleanId(scenarioId)} ${testId(
+      'steps'
+    )} div:nth-child(${stepIndex}) ${testId('dataTable')} tr`
+  )
+  assert.deepStrictEqual(actual, expectedDataTable.raw())
+}
+
+function evalTableToArrays(context, rowSelector) {
+  return Promise.resolve(
+    context.page.$$eval(rowSelector, (e) =>
+      e.map((e2, i) => {
+        const selector = i === 0 ? 'th' : 'td'
+        return Array.from(e2.querySelectorAll(selector)).map(
+          (r) => r.textContent
+        )
+      })
+    )
+  )
+}

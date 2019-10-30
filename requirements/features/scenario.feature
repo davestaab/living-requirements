@@ -247,3 +247,81 @@ Ability: User can see Scenarios
     world
     """
 
+  Scenario: Should be able to see Data Table
+    Given a cucumber example output scenario_show_data_table
+    """
+    [{
+      "keyword": "Ability",
+      "name": "User can see data table",
+      "id": "user-can-see-data-table",
+      "elements": [{
+        "id": "user-can-see-data-table;should-be-able-to-see-data-table",
+        "keyword": "Scenario",
+        "name": "Should be able to see data table",
+        "type": "scenario",
+        "steps": [{
+            "keyword": "Given ",
+            "name": "a first step",
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [{
+              "rows": [{
+                  "cells": [
+                    "fruit",
+                    "count"
+                  ]
+                },
+                {
+                  "cells": [
+                    "apples",
+                    "2"
+                  ]
+                },
+                {
+                  "cells": [
+                    "oranges",
+                    "1"
+                  ]
+                },
+                {
+                  "cells": [
+                    "pears",
+                    "1"
+                  ]
+                },
+                {
+                  "cells": [
+                    "pineapples",
+                    "1"
+                  ]
+                },
+                {
+                  "cells": [
+                    "lemons",
+                    "1"
+                  ]
+                }
+              ]
+            }],
+            "keyword": "Given ",
+            "name": "a second step with a data table argument",
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      }]
+    }]
+    """
+    When you view page examples/scenario_show_data_table
+    And you click feature user-can-see-data-table
+    Then you can see data table for step 2 of scenario 'user-can-see-data-table;should-be-able-to-see-data-table'
+      | fruit      | count |
+      | apples     | 2     |
+      | oranges    | 1     |
+      | pears      | 1     |
+      | pineapples | 1     |
+      | lemons     | 1     |

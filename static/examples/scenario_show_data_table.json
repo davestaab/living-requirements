@@ -1,0 +1,65 @@
+[{
+  "keyword": "Ability",
+  "name": "User can see data table",
+  "id": "user-can-see-data-table",
+  "elements": [{
+    "id": "user-can-see-data-table;should-be-able-to-see-data-table",
+    "keyword": "Scenario",
+    "name": "Should be able to see data table",
+    "type": "scenario",
+    "steps": [{
+        "keyword": "Given ",
+        "name": "a first step",
+        "result": {
+          "status": "passed"
+        }
+      },
+      {
+        "arguments": [{
+          "rows": [{
+              "cells": [
+                "fruit",
+                "count"
+              ]
+            },
+            {
+              "cells": [
+                "apples",
+                "2"
+              ]
+            },
+            {
+              "cells": [
+                "oranges",
+                "1"
+              ]
+            },
+            {
+              "cells": [
+                "pears",
+                "1"
+              ]
+            },
+            {
+              "cells": [
+                "pineapples",
+                "1"
+              ]
+            },
+            {
+              "cells": [
+                "lemons",
+                "1"
+              ]
+            }
+          ]
+        }],
+        "keyword": "Given ",
+        "name": "a second step with a data table argument",
+        "result": {
+          "status": "passed"
+        }
+      }
+    ]
+  }]
+}]

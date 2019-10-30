@@ -1,5 +1,5 @@
 <template>
-  <pre class="blue-grey lighten-5 m5" data-testid="docString"
+  <pre class="blue-grey lighten-5 px-6 py-3" data-testid="docString"
     >{{ step.arguments[0].content }}
   </pre>
 </template>
