@@ -5,7 +5,7 @@ Ability: User can see Steps
   I want to the steps taken for a scenario
 
   Scenario: Can see step name
-    Given a cucumber example steps output step_name:
+    Given a cucumber example output steps/step_name
     """
     {
       "id": "scenario-with-steps",
@@ -28,7 +28,7 @@ Ability: User can see Steps
       | When you view page example single_feature      |
 
   Scenario: Can see step status
-    Given a cucumber example steps output step_status:
+    Given a cucumber example output steps/step_status
     """
     {
       "id": "scenario-with-steps",
@@ -83,7 +83,7 @@ Ability: User can see Steps
   Scenario: You should not see hidden steps
   Cucumber adds a hidden: true flag to some steps like before/after.
   Those steps won't be displayed.
-    Given a cucumber example steps output steps_hidden:
+    Given a cucumber example output steps/steps_hidden
     """
     {
       "id": "scenario-with-hidden-steps",

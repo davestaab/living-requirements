@@ -4,34 +4,21 @@ import { cleanId } from '../../components/utils'
 import {
   assertFeatureName,
   assertFeatureTable,
-  assertFeatureDescription,
   assertTags,
   assertScenarioName,
   assertSteps,
-  assertScenarioDescription,
   assertScenarioStepSummary,
   clickElement,
   assertScenarioStepCount,
   assertFeatureScenarioSummary,
   assertScenarioDocStrings,
   assertScenarioDataTable,
-  assertScenarioState
+  assertScenarioState,
+  assertFeatureScenarioDescription
 } from './utils'
 
 Given('a cucumber example output {word}', function(name, docString) {
   fs.writeFileSync(`./static/examples/${name}.json`, docString)
-})
-
-Given('a cucumber example {word} output {word}:', function(
-  folder,
-  name,
-  docString
-) {
-  fs.writeFileSync(`./static/examples/${folder}/${name}.json`, docString)
-})
-
-Given('a pending scenario', function() {
-  return 'pending'
 })
 
 When('you view page {word}', async function(page) {
@@ -46,19 +33,20 @@ Then('you can see a feature {} has text {}', async function(featureId, text) {
   await assertFeatureName(this, featureId, text)
 })
 
-Then('you can see a feature {} has description {string}', async function(
-  featureId,
+Then('you can see a {word} {} has description {string}', async function(
+  featureScenario,
+  id,
   description
 ) {
-  await assertFeatureDescription(this, featureId, description)
+  const isFeature = featureScenario === 'feature'
+  await assertFeatureScenarioDescription(this, isFeature, id, description)
 })
 
 Then('you can see features:', async function(featureTable) {
   await assertFeatureTable(this, featureTable)
 })
 
-Then('you can see a {} {} has tags:', async function(
-  type,
+Then('you can see a feature/scenario {} has tags:', async function(
   featureId,
   tagTable
 ) {
@@ -70,13 +58,6 @@ Then('you can see a scenario {} has name {}', async function(
   scenarioName
 ) {
   await assertScenarioName(this, scenarioId, scenarioName)
-})
-
-Then('you can see a scenario {} has description {}', async function(
-  scenarioId,
-  description
-) {
-  await assertScenarioDescription(this, scenarioId, description)
 })
 
 Then('you can see steps for scenario {}', async function(

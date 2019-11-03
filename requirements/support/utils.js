@@ -22,13 +22,6 @@ export async function assertFeatureName(context, id, name) {
   assert.strictEqual(content, name)
 }
 
-export async function assertFeatureDescription(context, id, desc) {
-  const actual = await context.page.$eval(
-    `#${id} [data-testid="featureDescription"]`,
-    (e) => e.textContent
-  )
-  assert.strictEqual(cleanString(actual), cleanString(desc))
-}
 function cleanString(inStr) {
   return inStr.replace(/\n|\\n/g, '')
 }
@@ -50,10 +43,17 @@ export async function assertScenarioName(context, id, name) {
   assert.strictEqual(actual, name)
 }
 
-export async function assertScenarioDescription(context, id, desc) {
-  const actual = await context.page.$eval(
-    `#${cleanId(id)} [data-testid="scenarioDescription"]`,
-    (e) => e.textContent.trim()
+export async function assertFeatureScenarioDescription(
+  context,
+  isFeature,
+  id,
+  desc
+) {
+  const testIdStr = isFeature
+    ? testId('featureDescription')
+    : testId('scenarioDescription')
+  const actual = await context.page.$eval(`#${cleanId(id)} ${testIdStr}`, (e) =>
+    e.textContent.trim()
   )
   assert.strictEqual(cleanString(actual), cleanString(desc))
 }

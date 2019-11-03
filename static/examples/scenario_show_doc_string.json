@@ -4,7 +4,7 @@
   "id": "user-can-see-doc-string",
   "elements": [
     {
-      "id": "user-can-see-doc-string;should-be-able-to-see-doc-string",
+      "id": "user-can-see-scenarios;should-be-able-to-see-doc-string",
       "keyword": "Scenario",
       "name": "Should be able to see doc string",
       "type": "scenario",

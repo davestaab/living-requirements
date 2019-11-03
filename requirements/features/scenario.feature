@@ -91,7 +91,7 @@ Ability: User can see Scenarios
     When you view page examples/scenario_with_description
     And you click feature 'user-can-see-a-requirement'
     And you click scenario 'user-can-see-a-requirement;simple-feature'
-    Then you can see a scenario user-can-see-a-requirement;simple-feature has description In order to understand how the software works\nAs a user\nI want to see each requirement
+    Then you can see a scenario user-can-see-a-requirement;simple-feature has description "In order to understand how the software works\nAs a user\nI want to see each requirement"
 
   Scenario: Can see step counts by status
     Given a cucumber example output scenario_steps_by_status
