@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <suite :suite="suite" />
-  </div>
+  <suite :suite="suite" />
 </template>
 
 <script>

@@ -1,4 +1,5 @@
 import assert from 'assert'
+import fs from 'fs'
 import head from 'lodash/fp/head'
 import { cleanId } from '../../components/utils'
 
@@ -196,4 +197,51 @@ export async function assertScenarioState(context, scenarioId, state) {
     }
   )
   assert.strictEqual(isExpanded, expectExpanded)
+}
+
+const updateSnapshots = process.env.UPDATE_SNAPSHOTS !== undefined
+export async function assertElementMatchesSnapshot(
+  context,
+  elementId,
+  snapshot
+) {
+  if (updateSnapshots) {
+    // eslint-disable-next-line no-console
+    console.log(`updating snapshots for element ${elementId} to ${snapshot}`)
+  }
+  const updateOptions = updateSnapshots
+    ? {
+        path: `static/screenshots/${snapshot}.png`
+      }
+    : {}
+  const [elementBuffer, snapshotBuffer] = await Promise.all([
+    context.page.$(`#${elementId}`).then((element) => {
+      return element.screenshot({
+        ...updateOptions
+      })
+    }),
+    new Promise((resolve, reject) => {
+      if (updateSnapshots) return resolve()
+      fs.readFile(`static/screenshots/${snapshot}.png`, function(err, data) {
+        return err ? reject(err) : resolve(data)
+      })
+    })
+  ])
+  if (updateSnapshots) {
+    context.attach(`Updating snapshot '${snapshot}'`)
+    context.attach(elementBuffer, 'image/png')
+    return
+  }
+  const actual = elementBuffer.compare(snapshotBuffer)
+  context.attach('Actual')
+  context.attach(elementBuffer, 'image/png')
+  if (actual !== 0) {
+    context.attach('Expected')
+    context.attach(snapshotBuffer, 'image/png')
+  }
+  assert.strictEqual(
+    actual,
+    0,
+    `Expected element '${elementId}' to match snapshot '${snapshot}'`
+  )
 }

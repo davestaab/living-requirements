@@ -14,7 +14,8 @@ import {
   assertScenarioDocStrings,
   assertScenarioDataTable,
   assertScenarioState,
-  assertFeatureScenarioDescription
+  assertFeatureScenarioDescription,
+  assertElementMatchesSnapshot
 } from './utils'
 
 Given('a cucumber example output {word}', function(name, docString) {
@@ -114,4 +115,8 @@ Then(
 
 Then('scenario {string} is {string}', async function(scenarioId, state) {
   await assertScenarioState(this, scenarioId, state)
+})
+
+Then('chart {string} should match {string}', async function(chartId, snapshot) {
+  await assertElementMatchesSnapshot(this, chartId, snapshot)
 })

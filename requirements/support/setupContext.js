@@ -5,7 +5,7 @@ let browser, page
 Before('not @pending', async function() {
   if (!browser) {
     browser = await puppeteer.launch({
-      headless: false
+      headless: true
     })
 
     page = await browser.newPage()
