@@ -1,7 +1,8 @@
 import { generate } from 'cucumber-html-reporter'
 
 generate({
-  theme: 'hierarchy',
+  // theme: 'hierarchy',
+  theme: 'bootstrap',
   // theme: 'simple',
   brandTitle: 'Living Requirements',
   jsonFile: 'static/output/cucumber_report.json',
