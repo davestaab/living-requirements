@@ -26,8 +26,9 @@
 
 <script>
 import Tags from './Tags'
-import { getFeatureSummary } from './utils'
+
 import StatusSummary from './StatusSummary'
+import { singleFeatureSummary } from './helpers/statusSummary'
 
 export default {
   name: 'Feature',
@@ -43,7 +44,7 @@ export default {
   },
   computed: {
     featureSummary() {
-      return getFeatureSummary(this.feature)
+      return singleFeatureSummary(this.feature)
     }
   }
 }

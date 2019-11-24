@@ -28,10 +28,11 @@
 </template>
 
 <script>
-import { cleanId, getScenarioStepSummary } from './utils'
+import { cleanId } from './utils'
 import Tags from './Tags'
 import StatusSummary from './StatusSummary'
 import Steps from './Steps'
+import { singleScenarioSummary } from './helpers/statusSummary'
 
 export default {
   name: 'Scenario',
@@ -51,7 +52,7 @@ export default {
       return cleanId(this.scenario.id)
     },
     summary() {
-      return getScenarioStepSummary(this.scenario.steps)
+      return singleScenarioSummary(this.scenario)
     }
   }
 }

@@ -1,11 +1,8 @@
 [
   {
     "keyword": "Ability",
-    "id": "scenarios-of-every-type",
-    "name": "Scenarios of every status",
     "elements": [
       {
-        "id": "user-can-see-a-requirement;simple-feature",
         "keyword": "Scenario",
         "name": "passed",
         "type": "scenario",
@@ -18,39 +15,13 @@
             }
           }
         ]
-      },
+      }
+    ]
+  },
+  {
+    "keyword": "Ability",
+    "elements": [
       {
-        "id": "user-can-see-a-requirement;simple-feature",
-        "keyword": "Scenario",
-        "name": "pending",
-        "type": "scenario",
-        "steps": [
-          {
-            "keyword": "Given ",
-            "name": "pending",
-            "result": {
-              "status": "pending"
-            }
-          }
-        ]
-      },
-      {
-        "id": "user-can-see-a-requirement;simple-feature",
-        "keyword": "Scenario",
-        "name": "skipped",
-        "type": "scenario",
-        "steps": [
-          {
-            "keyword": "Given ",
-            "name": "skipped",
-            "result": {
-              "status": "skipped"
-            }
-          }
-        ]
-      },
-      {
-        "id": "user-can-see-a-requirement;simple-feature",
         "keyword": "Scenario",
         "name": "failed",
         "type": "scenario",
@@ -63,9 +34,32 @@
             }
           }
         ]
-      },
+      }
+    ]
+  },
+  {
+    "keyword": "Ability",
+    "elements": [
       {
-        "id": "user-can-see-a-requirement;simple-feature",
+        "keyword": "Scenario",
+        "name": "pending",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "pending",
+            "result": {
+              "status": "pending"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "keyword": "Ability",
+    "elements": [
+      {
         "keyword": "Scenario",
         "name": "undefined",
         "type": "scenario",
@@ -75,6 +69,25 @@
             "name": "undefined",
             "result": {
               "status": "undefined"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "keyword": "Ability",
+    "elements": [
+      {
+        "keyword": "Scenario",
+        "name": "skipped",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "skipped",
+            "result": {
+              "status": "skipped"
             }
           }
         ]

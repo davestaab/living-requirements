@@ -117,3 +117,4 @@ Ability: User can see Steps
     And you can see steps for scenario scenario-with-hidden-steps
       | status | name                     |
       | passed | Then a passing assertion |
+

@@ -1,7 +1,21 @@
 <template>
   <div>
-    <pie-chart id="scenariosChart"></pie-chart>
-    <v-expansion-panels multiple inset>
+    <status-chart
+      id="featureSummaryChart"
+      :chart-data="featureSummary"
+      title="Features"
+    ></status-chart>
+    <!--    <status-chart-->
+    <!--      id="scenarioSummaryChart"-->
+    <!--      :chart-data="scenarioSummary"-->
+    <!--      title="Scenarios"-->
+    <!--    ></status-chart>-->
+    <!--    <status-chart-->
+    <!--      id="scenariosChart"-->
+    <!--      :chart-data="stepSummary"-->
+    <!--      title="Steps"-->
+    <!--    ></status-chart>-->
+    <v-expansion-panels multiple>
       <feature v-for="(f, i) in suite" :key="i" :feature="f">
         <v-expansion-panels multiple focusable>
           <scenario
@@ -16,14 +30,19 @@
 </template>
 
 <script>
+import {
+  stepSummary,
+  scenarioSummary,
+  featureSummary
+} from './helpers/statusSummary'
 import Feature from '@/components/Feature'
 import Scenario from '@/components/Scenario'
-import PieChart from '@/components/PieChart'
+import StatusChart from '@/components/StatusChart'
 
 export default {
   name: 'Suite',
   components: {
-    PieChart,
+    StatusChart,
     Feature,
     Scenario
   },
@@ -31,6 +50,17 @@ export default {
     suite: {
       required: true,
       type: Array
+    }
+  },
+  computed: {
+    stepSummary() {
+      return stepSummary(this.suite)
+    },
+    scenarioSummary() {
+      return scenarioSummary(this.suite)
+    },
+    featureSummary() {
+      return featureSummary(this.suite)
     }
   }
 }
