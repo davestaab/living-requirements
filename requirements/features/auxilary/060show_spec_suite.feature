@@ -1,4 +1,4 @@
-Ability: User can see the Specifications for this app
+Ability: To see the specifications for this app (Living Requirements)
   In order to know about the capabilities for the living requirement application
   As a user
   I want to see the specs for the app

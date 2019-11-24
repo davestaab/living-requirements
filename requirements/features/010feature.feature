@@ -1,8 +1,10 @@
 @feature:features
-Ability: User can see Features/Abilities
+Ability: To see Features or Abilities
   In order to understand how the software works
   As a user
   I want to see each requirement
+
+  Notes: Features and abilities are the same thing.
 
   Scenario: Can see multiple features
     Given a cucumber example output multiple_features
