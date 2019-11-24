@@ -1,0 +1,97 @@
+[
+  {
+    "keyword": "Ability",
+    "elements": [
+      {
+        "keyword": "Scenario",
+        "name": "passed",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "passed",
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "keyword": "Ability",
+    "elements": [
+      {
+        "keyword": "Scenario",
+        "name": "failed",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "failed",
+            "result": {
+              "status": "failed"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "keyword": "Ability",
+    "elements": [
+      {
+        "keyword": "Scenario",
+        "name": "pending",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "pending",
+            "result": {
+              "status": "pending"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "keyword": "Ability",
+    "elements": [
+      {
+        "keyword": "Scenario",
+        "name": "undefined",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "undefined",
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "keyword": "Ability",
+    "elements": [
+      {
+        "keyword": "Scenario",
+        "name": "skipped",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "skipped",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

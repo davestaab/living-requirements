@@ -5,11 +5,11 @@
       :chart-data="featureSummary"
       title="Features"
     ></status-chart>
-    <!--    <status-chart-->
-    <!--      id="scenarioSummaryChart"-->
-    <!--      :chart-data="scenarioSummary"-->
-    <!--      title="Scenarios"-->
-    <!--    ></status-chart>-->
+    <status-chart
+      id="scenarioSummaryChart"
+      :chart-data="scenarioSummary"
+      title="Scenarios"
+    ></status-chart>
     <!--    <status-chart-->
     <!--      id="scenariosChart"-->
     <!--      :chart-data="stepSummary"-->
