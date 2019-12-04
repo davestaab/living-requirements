@@ -3,7 +3,7 @@ Ability: To see charts giving a overview of the project
 
   In order to get an overview of the project
   As a user
-  I want to see a chart of features or scenarios by status
+  I want to see a chart of features or scenarios and their status
 
   Scenario: Chart of single feature
     Given a cucumber example output chart_features_every_status
