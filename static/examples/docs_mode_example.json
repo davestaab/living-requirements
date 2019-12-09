@@ -1,0 +1,13 @@
+[
+  {
+    "keyword": "Ability",
+    "elements": [
+      {
+        "keyword": "Scenario",
+        "name": "passed",
+        "type": "scenario",
+        "steps": []
+      }
+    ]
+  }
+]

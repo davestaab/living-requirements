@@ -1,28 +1,31 @@
 <template>
   <div>
+    <v-switch id="docsModeToggle" v-model="docsMode" :label="'Docs Mode'" />
     <status-chart
       id="featureSummaryChart"
+      v-if="!docsMode"
       :chart-data="featureSummary"
       title="Features"
-    ></status-chart>
+    />
     <status-chart
       id="scenarioSummaryChart"
+      v-if="!docsMode"
       :chart-data="scenarioSummary"
       title="Scenarios"
-    ></status-chart>
+    />
     <!--    <status-chart-->
     <!--      id="scenariosChart"-->
     <!--      :chart-data="stepSummary"-->
     <!--      title="Steps"-->
     <!--    ></status-chart>-->
     <v-expansion-panels multiple>
-      <feature v-for="(f, i) in suite" :key="i" :feature="f">
+      <feature v-for="(feature, i) in suite" :key="i" :feature="feature">
         <v-expansion-panels multiple focusable>
           <scenario
-            v-for="(s, j) in f.elements"
+            v-for="(scenario, j) in feature.elements"
             :key="j"
-            :scenario="s"
-          ></scenario>
+            :scenario="scenario"
+          />
         </v-expansion-panels>
       </feature>
     </v-expansion-panels>
@@ -50,6 +53,11 @@ export default {
     suite: {
       required: true,
       type: Array
+    }
+  },
+  data() {
+    return {
+      docsMode: false
     }
   },
   computed: {
