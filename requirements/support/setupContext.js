@@ -1,11 +1,13 @@
 import { Before, After, AfterAll } from 'cucumber'
 import puppeteer from 'puppeteer'
+const headless = true
 
 let browser, page
+
 Before('not @pending', async function() {
   if (!browser) {
     browser = await puppeteer.launch({
-      headless: true
+      headless
     })
 
     page = await browser.newPage()

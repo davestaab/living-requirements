@@ -36,6 +36,7 @@ export async function assertTags(context, id, tagTable) {
     assert.strictEqual(content[i], row.tag)
   })
 }
+
 export async function assertScenarioName(context, id, name) {
   const actual = await context.page.$eval(
     `#${cleanId(id)} [data-testid="scenarioName"]`,
@@ -200,6 +201,7 @@ export async function assertScenarioState(context, scenarioId, state) {
 }
 
 const updateSnapshots = process.env.UPDATE_SNAPSHOTS !== undefined
+
 export async function assertElementMatchesSnapshot(
   context,
   elementId,
@@ -244,4 +246,17 @@ export async function assertElementMatchesSnapshot(
     0,
     `Expected element '${elementId}' to match snapshot '${snapshot}'`
   )
+}
+
+export async function assertDocsMode(context, onOff) {
+  const expectedMode = onOff === 'on' ? 'true' : 'false'
+  const isExpanded = await context.page.$eval(`#docsModeToggle`, (e) => {
+    return e.getAttribute('aria-checked')
+  })
+  assert.strictEqual(isExpanded, expectedMode)
+}
+
+export async function assertNotFound(context, selector) {
+  const element = await context.page.$(selector)
+  assert.strictEqual(element, null)
 }

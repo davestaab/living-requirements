@@ -1,5 +1,5 @@
 @feature:steps
-Ability: To see Steps
+Ability: See Steps
   In order to see details about a scenario
   As a User
   I want to the steps taken for a scenario

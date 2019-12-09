@@ -1,38 +1,20 @@
-import fs from 'fs'
-import { Given, When, Then } from 'cucumber'
-import { cleanId } from '../../components/utils'
+import { Then } from 'cucumber'
 import {
-  assertFeatureName,
   assertFeatureTable,
   assertTags,
   assertScenarioName,
   assertSteps,
   assertScenarioStepSummary,
-  clickElement,
   assertScenarioStepCount,
   assertFeatureScenarioSummary,
   assertScenarioDocStrings,
   assertScenarioDataTable,
   assertScenarioState,
   assertFeatureScenarioDescription,
-  assertElementMatchesSnapshot
-} from './utils'
-
-Given('a cucumber example output {word}', function(name, docString) {
-  fs.writeFileSync(`./static/examples/${name}.json`, docString)
-})
-
-When('you view page {word}', async function(page) {
-  await this.page.goto(`http://localhost:3000/${page}`)
-})
-
-When('you click feature/scenario {string}', async function(elementId) {
-  await clickElement(this, `#${cleanId(elementId)} .v-expansion-panel-header`)
-})
-
-Then('you can see a feature {} has text {}', async function(featureId, text) {
-  await assertFeatureName(this, featureId, text)
-})
+  assertElementMatchesSnapshot,
+  assertDocsMode,
+  assertNotFound
+} from '../utils'
 
 Then('you can see a {word} {} has description {string}', async function(
   featureScenario,
@@ -119,4 +101,12 @@ Then('scenario {string} is {string}', async function(scenarioId, state) {
 
 Then('chart {string} should match {string}', async function(chartId, snapshot) {
   await assertElementMatchesSnapshot(this, chartId, snapshot)
+})
+
+Then('you can see docs mode is {word}', async function(onOff) {
+  await assertDocsMode(this, onOff)
+})
+
+Then('you can not see {string}', async function(selector) {
+  await assertNotFound(this, selector)
 })

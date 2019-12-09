@@ -1,5 +1,5 @@
 @feature:chart
-Ability: To see charts giving a overview of the project
+Ability: See charts giving a overview of the project
 
   In order to get an overview of the project
   As a user

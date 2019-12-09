@@ -1,5 +1,5 @@
 @feature:features
-Ability: To see Features or Abilities
+Ability: See Features and Abilities
   In order to understand how the software works
   As a user
   I want to see each requirement

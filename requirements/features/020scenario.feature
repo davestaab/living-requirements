@@ -1,5 +1,5 @@
 @feature:scenarios
-Ability: To see Scenarios
+Ability: See Scenarios
   In order to see examples of the feature
   As a user
   I want to see scenarios illustrating the features
