@@ -24,4 +24,4 @@ export function translate(x, y) {
  * @param id the id to clean
  * @return cleanId the now cleaned id
  */
-export const cleanId = (id) => id.replace(/;/g, '_')
+export const cleanId = (id) => (id ? id.replace(/;/g, '_') : '')
