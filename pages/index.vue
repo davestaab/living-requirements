@@ -1,7 +1,6 @@
 <template>
   <div>
-    <nuxt-link to="example/example1">Example 1</nuxt-link>
-    <h1>Hello world</h1>
+    <nuxt-link to="specs">Living Requirements Specifications</nuxt-link>
   </div>
 </template>
 
