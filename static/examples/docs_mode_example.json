@@ -1,12 +1,37 @@
 [
   {
     "keyword": "Ability",
+    "name": "See requirements in document mode",
+    "id": "docs-mode",
     "elements": [
       {
+        "id": "docs-mode;passed",
         "keyword": "Scenario",
-        "name": "passed",
+        "name": "success scenario",
         "type": "scenario",
-        "steps": []
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "you have some assumptions",
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "you take an action",
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "you can expect some results",
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
       }
     ]
   }

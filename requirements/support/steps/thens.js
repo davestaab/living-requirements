@@ -13,15 +13,16 @@ import {
   assertFeatureScenarioDescription,
   assertElementMatchesSnapshot,
   assertDocsMode,
-  assertNotFound
+  assertNotFound,
+  assertFeatureName
 } from '../utils'
 
-Then('you can see a {word} {} has description {string}', async function(
-  featureScenario,
+Then('you can see a {word} {word} has description {string}', async function(
+  featureOrScenario,
   id,
   description
 ) {
-  const isFeature = featureScenario === 'feature'
+  const isFeature = featureOrScenario === 'feature'
   await assertFeatureScenarioDescription(this, isFeature, id, description)
 })
 
@@ -36,7 +37,7 @@ Then('you can see a feature/scenario {} has tags:', async function(
   await assertTags(this, featureId, tagTable)
 })
 
-Then('you can see a scenario {} has name {}', async function(
+Then('you can see a scenario {word} has name {string}', async function(
   scenarioId,
   scenarioName
 ) {
@@ -109,4 +110,11 @@ Then('you can see docs mode is {word}', async function(onOff) {
 
 Then('you can not see {string}', async function(selector) {
   await assertNotFound(this, selector)
+})
+
+Then('you can see a feature {word} has text {string}', async function(
+  featureId,
+  text
+) {
+  await assertFeatureName(this, featureId, text)
 })

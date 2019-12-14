@@ -28,7 +28,7 @@ Ability: See Scenarios
     """
     When you view page examples/scenario_title
     And you click feature 'user-can-see-a-requirement'
-    Then you can see a scenario user-can-see-a-requirement;simple-feature has name Scenario: Simple feature
+    Then you can see a scenario user-can-see-a-requirement;simple-feature has name 'Scenario: Simple feature'
 
   Scenario: Can see scenario tags
     Given a cucumber example output scenario_tags
