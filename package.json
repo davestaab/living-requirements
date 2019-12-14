@@ -15,7 +15,8 @@
     "cuke:update-snapshots": "set UPDATE_SNAPSHOTS=true&& cucumber-js --require-module esm requirements/features --require requirements/**/*.js --format json:static/output/cucumber_report.json -t @feature:chart",
     "cuke:allure": "cucumber-js --require-module esm requirements/features --require requirements/**/*.js --format ./scripts/allure-reporter.js:dummy.txt",
     "allure:serve": "allure serve ./output/allure-results",
-    "html-report": "node -r esm scripts/cucumber-html-reporter.js"
+    "html-report": "node -r esm scripts/cucumber-html-reporter.js",
+    "html-report:simple": "node -r esm scripts/cucumber-html-reporter-simple.js"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint"
