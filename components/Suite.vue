@@ -49,6 +49,7 @@
           :key="j"
           class="pl-6"
         >
+          <tags :tags="scenario.tags"></tags>
           <div data-testid="scenarioName" class="title">
             {{ scenario.keyword }}: {{ scenario.name }}
           </div>
@@ -81,13 +82,15 @@ import { cleanId } from './utils'
 import Feature from '@/components/Feature'
 import Scenario from '@/components/Scenario'
 import StatusChart from '@/components/StatusChart'
+import Tags from '@/components/Tags'
 
 export default {
   name: 'Suite',
   components: {
     StatusChart,
     Feature,
-    Scenario
+    Scenario,
+    Tags
   },
   props: {
     suite: {

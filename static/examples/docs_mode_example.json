@@ -5,10 +5,18 @@
     "id": "docs-mode",
     "elements": [
       {
-        "id": "docs-mode;passed",
+        "id": "docs-mode;success-scenario",
         "keyword": "Scenario",
         "name": "success scenario",
         "type": "scenario",
+        "tags": [
+          {
+            "name": "@debug"
+          },
+          {
+            "name": "@another"
+          }
+        ],
         "steps": [
           {
             "keyword": "Given ",

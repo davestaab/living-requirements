@@ -18,10 +18,18 @@ Ability: Docs mode
         "id": "docs-mode",
         "elements": [
           {
-            "id": "docs-mode;passed",
+            "id": "docs-mode;success-scenario",
             "keyword": "Scenario",
             "name": "success scenario",
             "type": "scenario",
+            "tags": [
+              {
+                "name": "@debug"
+              },
+              {
+                "name": "@another"
+              }
+            ],
             "steps": [
               {
                 "keyword": "Given ",
@@ -70,8 +78,8 @@ Ability: Docs mode
     Given you are viewing page examples/docs_mode_example
     When you turn on docs mode
     Then you can see a feature docs-mode has text 'Ability: See requirements in document mode'
-    And you can see a scenario docs-mode;passed has name 'Scenario: success scenario'
-    And you can see steps for scenario docs-mode;passed
+    And you can see a scenario docs-mode;success-scenario has name 'Scenario: success scenario'
+    And you can see steps for scenario docs-mode;success-scenario
       | name                             |
       | Given you have some assumptions  |
       | When you take an action          |
@@ -91,4 +99,11 @@ Ability: Docs mode
 
   Scenario: Can see feature tags
 
-  Scenario: Can see scenario tags
+
+  Scenario: Can see scenario tags in docs mode
+    When you view page examples/docs_mode_example
+    And you turn on docs mode
+    Then you can see a scenario docs-mode;success-scenario has tags:
+      | tag      |
+      | @debug   |
+      | @another |
