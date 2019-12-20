@@ -3,6 +3,14 @@
     "keyword": "Ability",
     "name": "See requirements in document mode",
     "id": "docs-mode",
+    "tags": [
+      {
+        "name": "@debug"
+      },
+      {
+        "name": "@feature"
+      }
+    ],
     "elements": [
       {
         "id": "docs-mode;success-scenario",

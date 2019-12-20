@@ -16,6 +16,14 @@ Ability: Docs mode
         "keyword": "Ability",
         "name": "See requirements in document mode",
         "id": "docs-mode",
+        "tags": [
+          {
+            "name": "@debug"
+          },
+          {
+            "name": "@feature"
+          }
+        ],
         "elements": [
           {
             "id": "docs-mode;success-scenario",
@@ -97,8 +105,13 @@ Ability: Docs mode
 
   Scenario: Hidden steps are not shown
 
-  Scenario: Can see feature tags
-
+  Scenario: Can see feature tags in docs mode
+    When you view page examples/docs_mode_example
+    And you turn on docs mode
+    Then you can see a feature docs-mode has tags:
+      | tag      |
+      | @debug   |
+      | @feature |
 
   Scenario: Can see scenario tags in docs mode
     When you view page examples/docs_mode_example

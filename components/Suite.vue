@@ -29,6 +29,7 @@
         </v-expansion-panels>
       </feature>
     </v-expansion-panels>
+    <!--    docs mode-->
     <div v-if="docsMode">
       <div
         v-for="feature in suite"
@@ -36,6 +37,7 @@
         :key="feature.id"
         class="feature"
       >
+        <tags :tags="feature.tags"></tags>
         <div class="headline" data-testid="featureName">
           {{ feature.keyword }}: {{ feature.name }}
         </div>
