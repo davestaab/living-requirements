@@ -10,3 +10,5 @@ export interface Summary {
   status: Status;
   count: number;
 }
+
+export type Tag = string

@@ -37,6 +37,14 @@ export async function assertTags(context, id, tagTable) {
   })
 }
 
+export async function assertTagSet(context, tagTable) {
+  const content = await context.page.$$eval(
+    `#tagSet [data-testid="tag"]`,
+    (e) => e.map((e2) => e2.textContent.trim())
+  )
+  tagTable.hashes().map((row, i) => assert.strictEqual(content[i], row.tag))
+}
+
 export async function assertScenarioName(context, id, name) {
   const actual = await context.page.$eval(
     `#${cleanId(id)} [data-testid="scenarioName"]`,

@@ -1,6 +1,27 @@
 <template>
   <div>
-    <v-switch id="docsModeToggle" v-model="docsMode" :label="'Docs Mode'" />
+    <v-sheet elevation="2" class="py-2 px-4 mb-2">
+      <span class="title">Settings</span>
+      <v-switch id="docsModeToggle" v-model="docsMode" :label="'Docs Mode'" />
+      <span class="subheading">Filter tags</span>
+      <v-chip-group
+        id="tagSet"
+        v-model="filteredTags"
+        multiple
+        column
+        active-class="primary--text"
+      >
+        <v-chip
+          v-for="tag in tagSet"
+          :key="tag"
+          :value="tag"
+          filter
+          data-testid="tag"
+        >
+          {{ tag }}
+        </v-chip>
+      </v-chip-group>
+    </v-sheet>
     <status-chart
       v-if="!docsMode"
       id="featureSummaryChart"
@@ -13,11 +34,6 @@
       :chart-data="scenarioSummary"
       title="Scenarios"
     />
-    <!--    <status-chart-->
-    <!--      id="scenariosChart"-->
-    <!--      :chart-data="stepSummary"-->
-    <!--      title="Steps"-->
-    <!--    ></status-chart>-->
     <v-expansion-panels v-if="!docsMode" multiple>
       <feature v-for="(feature, i) in suite" :key="i" :feature="feature">
         <v-expansion-panels multiple focusable>
@@ -41,10 +57,13 @@
         <div class="headline" data-testid="featureName">
           {{ feature.keyword }}: {{ feature.name }}
         </div>
-        <!-- prettier-ignore -->
-        <div v-if="feature.description"
+        <div
+          v-if="feature.description"
           class="blockquote description"
-          data-testid="featureDescription">{{ feature.description }}</div>
+          data-testid="featureDescription"
+        >
+          {{ feature.description }}
+        </div>
         <div
           v-for="(scenario, j) in feature.elements"
           :id="cleanId(scenario.id)"
@@ -55,10 +74,13 @@
           <div data-testid="scenarioName" class="title">
             {{ scenario.keyword }}: {{ scenario.name }}
           </div>
-          <!-- prettier-ignore -->
-          <div v-if="scenario.description"
+          <div
+            v-if="scenario.description"
             class="blockquote description"
-            data-testid="scenarioDescription">{{ scenario.description }}</div>
+            data-testid="scenarioDescription"
+          >
+            {{ scenario.description }}
+          </div>
           <div
             v-for="(step, k) in filterSteps(scenario.steps)"
             :key="k"
@@ -80,6 +102,7 @@ import {
   scenarioSummary,
   featureSummary
 } from './helpers/statusSummary'
+import { getTags } from './helpers/tags'
 import { cleanId } from './utils'
 import Feature from '@/components/Feature'
 import Scenario from '@/components/Scenario'
@@ -102,7 +125,8 @@ export default {
   },
   data() {
     return {
-      docsMode: false
+      docsMode: false,
+      filteredTags: []
     }
   },
   computed: {
@@ -114,6 +138,9 @@ export default {
     },
     featureSummary() {
       return featureSummary(this.suite)
+    },
+    tagSet() {
+      return getTags(this.suite)
     }
   },
   methods: {

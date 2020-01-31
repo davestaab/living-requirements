@@ -1,0 +1,44 @@
+[
+  {
+    "keyword": "Ability",
+    "name": "See requirements in document mode",
+    "id": "docs-mode",
+    "tags": [
+      {
+        "name": "@from-feature"
+      }
+    ],
+    "elements": [
+      {
+        "id": "docs-mode;success-scenario",
+        "keyword": "Scenario",
+        "name": "success scenario",
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@from-feature"
+          },
+          {
+            "name": "@from-scenario"
+          }
+        ],
+        "steps": []
+      },
+      {
+        "id": "docs-mode;success-scenario",
+        "keyword": "Scenario",
+        "name": "success scenario",
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@from-feature"
+          },
+          {
+            "name": "@from-scenario2"
+          }
+        ],
+        "steps": []
+      }
+    ]
+  }
+]

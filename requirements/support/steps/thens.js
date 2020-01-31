@@ -14,7 +14,8 @@ import {
   assertElementMatchesSnapshot,
   assertDocsMode,
   assertNotFound,
-  assertFeatureName
+  assertFeatureName,
+  assertTagSet
 } from '../utils'
 
 Then('you can see a {word} {word} has description {string}', async function(
@@ -117,4 +118,8 @@ Then('you can see a feature {word} has text {string}', async function(
   text
 ) {
   await assertFeatureName(this, featureId, text)
+})
+
+Then('you will see the tag set is:', async function(dataTable) {
+  await assertTagSet(this, dataTable)
 })

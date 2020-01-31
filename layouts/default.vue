@@ -37,6 +37,7 @@
       </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
+      <!--      <v-switch id="docsModeToggle" v-model="docsMode" :label="'Docs Mode'" />-->
       <!--      <v-btn icon @click.stop="rightDrawer = !rightDrawer">-->
       <!--        <v-icon>mdi-menu</v-icon>-->
       <!--      </v-btn>-->
