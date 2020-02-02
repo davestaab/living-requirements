@@ -1,7 +1,7 @@
 <template>
   <svg width="500" height="300" class="background">
     <g :transform="translate(padding.left, padding.top)">
-      <text class="chart-title" text-anchor="end" :x="innerWidth">
+      <text :x="innerWidth" class="chart-title" text-anchor="end">
         {{ total }} {{ title }}
       </text>
       <g id="leftAxis" v-axis-left="yScale"></g>
@@ -12,7 +12,7 @@
       ></g>
       <g v-for="(d, i) in layoutData" :key="i" :transform="translate(0, d.y)">
         <line :x2="d.x" stroke="currentColor"></line>
-        <circle :cx="d.x" r="4" :fill="d.color"></circle>
+        <circle :cx="d.x" :fill="d.color" r="4"></circle>
       </g>
     </g>
   </svg>

@@ -4,9 +4,9 @@
       v-for="(s, i) in summary"
       :key="i"
       :color="getColor(s.status)"
+      :data-step-status="s.status"
       size="20"
       class="count"
-      :data-step-status="s.status"
       data-testid="stepResult"
     >
       <span class="white--text caption">{{ s.count }}</span>

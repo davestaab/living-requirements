@@ -23,14 +23,14 @@
       </v-chip-group>
     </v-sheet>
     <status-chart
-      v-if="!docsMode"
       id="featureSummaryChart"
+      v-if="!docsMode"
       :chart-data="featureSummary"
       title="Features"
     />
     <status-chart
-      v-if="!docsMode"
       id="scenarioSummaryChart"
+      v-if="!docsMode"
       :chart-data="scenarioSummary"
       title="Scenarios"
     />

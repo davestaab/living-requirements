@@ -2,7 +2,7 @@
   <div data-testid="steps">
     <div v-for="(step, i) in filteredSteps" :key="i">
       <v-icon :color="statusColor(step)">{{ statusIcon(step) }}</v-icon>
-      <span data-testid="stepName" :data-step-status="stepStatus(step)"
+      <span :data-step-status="stepStatus(step)" data-testid="stepName"
         >{{ step.keyword }}{{ step.name }}</span
       >
       <doc-string v-if="showDocString(step)" :step="step"></doc-string>
