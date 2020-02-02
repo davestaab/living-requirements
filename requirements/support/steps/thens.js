@@ -5,7 +5,6 @@ import {
   assertScenarioName,
   assertSteps,
   assertScenarioStepSummary,
-  assertScenarioStepCount,
   assertFeatureScenarioSummary,
   assertScenarioDocStrings,
   assertScenarioDataTable,
@@ -15,8 +14,10 @@ import {
   assertDocsMode,
   assertNotFound,
   assertFeatureName,
-  assertTagSet
+  assertTagSet,
+  assertCount
 } from '../utils'
+import { cleanId } from '../../../components/utils'
 
 Then('you can see a {word} {word} has description {string}', async function(
   featureOrScenario,
@@ -63,7 +64,11 @@ Then('you can see {int} step(s) for scenario {}', async function(
   count,
   scenarioId
 ) {
-  await assertScenarioStepCount(this, count, scenarioId)
+  await assertCount(
+    this,
+    count,
+    `#${cleanId(scenarioId)} [data-testid="stepName"]`
+  )
 })
 
 Then('you can see a scenario summary for feature {}', async function(
@@ -122,4 +127,8 @@ Then('you can see a feature {word} has text {string}', async function(
 
 Then('you will see the tag set is:', async function(dataTable) {
   await assertTagSet(this, dataTable)
+})
+
+Then('the feature count is {int}', async function(count) {
+  await assertCount(this, count, `[data-testid="featureName"]`)
 })

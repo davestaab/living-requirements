@@ -35,7 +35,11 @@
       title="Scenarios"
     />
     <v-expansion-panels v-if="!docsMode" multiple>
-      <feature v-for="(feature, i) in suite" :key="i" :feature="feature">
+      <feature
+        v-for="(feature, i) in filteredSuite"
+        :key="i"
+        :feature="feature"
+      >
         <v-expansion-panels multiple focusable>
           <scenario
             v-for="(scenario, j) in feature.elements"
@@ -48,7 +52,7 @@
     <!--    docs mode-->
     <div v-if="docsMode">
       <div
-        v-for="feature in suite"
+        v-for="feature in filteredSuite"
         :id="feature.id"
         :key="feature.id"
         class="feature"
@@ -102,7 +106,7 @@ import {
   scenarioSummary,
   featureSummary
 } from './helpers/statusSummary'
-import { getTags } from './helpers/tags'
+import { getTags, filterSuiteByTags } from './helpers/tags'
 import { cleanId } from './utils'
 import Feature from '@/components/Feature'
 import Scenario from '@/components/Scenario'
@@ -141,6 +145,11 @@ export default {
     },
     tagSet() {
       return getTags(this.suite)
+    },
+    filteredSuite() {
+      return this.filteredTags.length > 0
+        ? filterSuiteByTags(this.suite, this.filteredTags)
+        : this.suite
     }
   },
   methods: {

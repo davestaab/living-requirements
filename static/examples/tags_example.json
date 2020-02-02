@@ -1,8 +1,8 @@
 [
   {
     "keyword": "Ability",
-    "name": "See requirements in document mode",
-    "id": "docs-mode",
+    "name": "All about tags",
+    "id": "about-tags",
     "tags": [
       {
         "name": "@from-feature"
@@ -10,7 +10,7 @@
     ],
     "elements": [
       {
-        "id": "docs-mode;success-scenario",
+        "id": "about-tags;success-scenario",
         "keyword": "Scenario",
         "name": "success scenario",
         "type": "scenario",
@@ -25,7 +25,7 @@
         "steps": []
       },
       {
-        "id": "docs-mode;success-scenario",
+        "id": "about-tags;success-scenario",
         "keyword": "Scenario",
         "name": "success scenario",
         "type": "scenario",
@@ -40,5 +40,12 @@
         "steps": []
       }
     ]
+  },
+  {
+    "keyword": "Ability",
+    "name": "with no tags",
+    "id": "no-tags",
+    "tags": [],
+    "elements": []
   }
 ]

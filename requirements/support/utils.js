@@ -120,16 +120,21 @@ export async function assertScenarioStepSummary(
 export async function clickElement(context, selector) {
   await context.page.$eval(selector, (e) => e && e.click())
 }
-
-export async function assertScenarioStepCount(
-  context,
-  expectedCount,
-  scenarioId
-) {
-  const actualCount = await context.page.$$eval(
-    `#${cleanId(scenarioId)} [data-testid="stepName"]`,
-    (e) => e.length
+export async function clickElementByContent(context, selector, content) {
+  await context.page.$$eval(
+    selector,
+    (e, content2) => {
+      e.map((e2) => {
+        if (e2.textContent.trim() === content2) e2.click()
+      })
+      // e && e.click()
+    },
+    content
   )
+}
+
+export async function assertCount(context, expectedCount, selector) {
+  const actualCount = await context.page.$$eval(selector, (e) => e.length)
   assert.strictEqual(actualCount, expectedCount)
 }
 
